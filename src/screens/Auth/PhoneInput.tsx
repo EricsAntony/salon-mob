@@ -16,6 +16,10 @@ import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import { useNavigation, useRoute } from '@react-navigation/native';
 import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
+import { API_URL } from '../../utils/env';
+import { postJson } from '../../utils/network';
+import { AppError } from '../../utils/errors';
+import ErrorBanner from '../../components/ErrorBanner';
 
 const GRADIENT_COLORS = ['#ffffff', '#f3e8ff', '#ede9fe'] as const; // white -> purple-100 -> violet-100
 const VIOLET_600 = '#7c3aed';
@@ -38,6 +42,7 @@ export default function PhoneInput() {
   const [isFocused, setIsFocused] = useState(false);
   const [error, setError] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [bannerError, setBannerError] = useState<string | null>(null);
 
   const inputRef = useRef<RNTextInput>(null);
 
@@ -93,6 +98,7 @@ export default function PhoneInput() {
     const formatted = formatPhoneNumber(raw);
     const digits = raw.replace(/\D/g, '');
     setPhoneNumber(formatted);
+    if (bannerError) setBannerError(null);
 
     const valid = validateIndianNumber(digits);
     setIsValid(valid);
@@ -110,22 +116,10 @@ export default function PhoneInput() {
     try {
       setIsSubmitting(true);
       setError('');
-      const res = await fetch('https://salon-service.onrender.com/otp/request', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ phone_number: digits }),
-      });
-      const data = await res.json().catch(() => ({}) as any);
-
-      if (!res.ok) {
-        const msg = (data && (data.message || data.error)) || 'Failed to send OTP';
-        setError(msg);
-        console.warn('OTP request failed:', data);
-        return;
-      }
-
+      setBannerError(null);
+      const { data } = await postJson(`${API_URL}/otp/request`, { phone_number: digits });
       console.log('OTP request success:', data);
-      if ((data as any).otp) console.log('OTP code:', (data as any).otp);
+      if ((data as any)?.otp) console.log('OTP code:', (data as any).otp);
 
       const payload = { phoneNumber: `+91 ${phoneNumber}` };
       if (returnTo === 'OTPInput') {
@@ -134,8 +128,12 @@ export default function PhoneInput() {
         (navigation as any).navigate('OTPInput', payload);
       }
     } catch (e) {
-      console.error('OTP request error:', e);
-      setError('Network error. Please try again.');
+      if (__DEV__) {
+        console.log('OTP request error:', e);
+      }
+      // Show network/timeout/API errors in top banner for consistency
+      if (e instanceof AppError) setBannerError(e.message || 'Failed to send OTP');
+      else setBannerError('Network error. Please try again.');
     } finally {
       setIsSubmitting(false);
     }
@@ -175,6 +173,14 @@ export default function PhoneInput() {
           opacity: enterOpacity,
         }}
       >
+        {/* Top error/timeout banner with reserved space to avoid layout flicker */}
+        <View style={{ position: 'relative', height: 56, marginBottom: 12 }}>
+          <ErrorBanner
+            message={bannerError}
+            onDismiss={() => setBannerError(null)}
+            style={{ position: 'absolute', left: 0, right: 0 }}
+          />
+        </View>
         {/* Icon */}
         <View style={styles.iconWrap}>
           <View style={styles.iconCircle}>

@@ -1,8 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import Constants from 'expo-constants';
 import type { RootState } from '../store';
-
-const API_URL = (Constants?.expoConfig?.extra as any)?.API_URL || 'https://example.com/api';
+import { API_URL } from '../utils/env';
 
 export const baseApi = createApi({
   reducerPath: 'api',

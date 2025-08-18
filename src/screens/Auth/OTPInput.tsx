@@ -17,9 +17,12 @@ import { useNavigation, useRoute } from '@react-navigation/native';
 import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 import { storage } from '../../utils/storage';
-import { AppError, fromApiError } from '../../utils/errors';
+import { AppError } from '../../utils/errors';
 import { useAppDispatch } from '../../store';
 import { setToken } from '../../store/slices/authSlice';
+import { API_URL } from '../../utils/env';
+import { postJson } from '../../utils/network';
+import ErrorBanner from '../../components/ErrorBanner';
 
 const GRADIENT_COLORS = ['#ffffff', '#f3e8ff', '#ede9fe'] as const; // white -> purple-100 -> violet-100
 const VIOLET_600 = '#7c3aed';
@@ -137,51 +140,78 @@ export default function OTPInput() {
 
     const digits = String(phoneNumber).replace(/\D/g, '').slice(-10);
     try {
-      const res = await fetch('https://salon-service.onrender.com/user/authenticate', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ phone_number: digits, otp: code }),
-        credentials: 'include',
-      });
+      const { res, data } = await postJson(
+        `${API_URL}/user/authenticate`,
+        {
+          phone_number: digits,
+          otp: code,
+        },
+        { credentials: 'include' as any },
+      );
 
-      // Attempt to parse JSON regardless of status
-      let data: any = null;
-      try {
-        data = await res.json();
-      } catch (e) {
-        // non-JSON response
-        data = null;
-      }
-
-      if (!res.ok || data?.success === false) {
-        throw fromApiError(data, res.status);
-      }
-
-      // Success path
-      const accessToken: string | undefined = data?.accessToken || data?.token;
-      if (accessToken) {
-        // Persist both in Redux (used by RTK Query) and AsyncStorage (optional backup)
-        dispatch(setToken(accessToken));
-        await storage.set('auth.accessToken', accessToken);
-        console.log('Access token received');
-      }
+      // Success path: extract tokens from body or headers
+      const accessToken: string | undefined =
+        data?.access_token || data?.accessToken || data?.token;
+      const refreshTokenBody: string | undefined = data?.refresh_token || data?.refreshToken;
+      const csrfTokenBody: string | undefined =
+        data?.csrf_token || data?.csrfToken || res.headers.get('x-csrf-token') || undefined;
 
       const setCookie = res.headers.get('set-cookie');
       if (setCookie) {
-        // Store raw cookie header for now; parsing can be added once cookie names are finalized
+        // Save raw header for debugging/refresh fallback
         await storage.set('auth.cookies', { setCookie });
-        console.log('Cookie header captured for refresh/CSRF');
+
+        // Best-effort parse cookies to extract refresh/csrf if present
+        const parts = String(setCookie).split(/,(?=[^;]+?=)/);
+        const getCookie = (name: string): string | undefined => {
+          for (const p of parts) {
+            const kv = p.split(';')[0];
+            const eq = kv.indexOf('=');
+            if (eq > -1) {
+              const k = kv.slice(0, eq).trim();
+              if (k.toLowerCase() === name.toLowerCase()) return kv.slice(eq + 1).trim();
+            }
+          }
+          return undefined;
+        };
+        const refreshFromCookie =
+          getCookie('refresh_token') || getCookie('refreshToken') || getCookie('rt');
+        const csrfFromCookie =
+          getCookie('csrf_token') ||
+          getCookie('csrfToken') ||
+          getCookie('xsrf-token') ||
+          getCookie('XSRF-TOKEN');
+
+        if (!refreshTokenBody && refreshFromCookie)
+          await storage.set('auth.refreshToken', refreshFromCookie);
+        if (!csrfTokenBody && csrfFromCookie) await storage.set('auth.csrfToken', csrfFromCookie);
       }
 
-      // TODO: integrate with Redux auth state / navigate to app flow
+      if (refreshTokenBody) await storage.set('auth.refreshToken', refreshTokenBody);
+      if (csrfTokenBody) await storage.set('auth.csrfToken', csrfTokenBody);
+
+      if (accessToken) {
+        dispatch(setToken(accessToken));
+        await storage.set('auth.accessToken', accessToken);
+      }
+
+      // Navigate to dashboard (Main tabs)
+      (navigation as any).reset({ index: 0, routes: [{ name: 'Main' }] });
     } catch (e: any) {
       if (e instanceof AppError) {
         if (e.type === 'OTP_EXPIRED') {
           setError('OTP expired. Please resend the code.');
           setCanResend(true);
         } else if (e.type === 'USER_NOT_REGISTERED') {
-          console.warn('User not registered');
-          // Optionally guide to signup here
+          // Navigate to registration with phone and otp prefilled
+          const otpCode = otp.join('');
+          const phoneDigits = (phoneNumber || '').replace(/\D/g, '');
+          const normalizedPhone = phoneDigits.length > 10 ? phoneDigits.slice(-10) : phoneDigits;
+          navigation.navigate('UserDetails', {
+            prefill: {},
+            phoneNumber: normalizedPhone,
+            otp: otpCode,
+          });
         } else {
           setError(e.message || 'Verification failed. Please try again.');
         }
@@ -201,22 +231,9 @@ export default function OTPInput() {
     // Extract last 10 digits from phoneNumber like "+91 98765 43210"
     const digits = String(phoneNumber).replace(/\D/g, '').slice(-10);
     try {
-      const res = await fetch('https://salon-service.onrender.com/otp/request', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ phone_number: digits }),
-      });
-      const data = await res.json().catch(() => ({}) as any);
-
-      if (!res.ok) {
-        const msg = (data && (data.message || data.error)) || 'Failed to resend OTP';
-        setError(msg);
-        console.warn('OTP resend failed:', data);
-        return;
-      }
-
+      const { data } = await postJson(`${API_URL}/otp/request`, { phone_number: digits });
       console.log('OTP resend success:', data);
-      const code = (data as any).code || (data as any).otp;
+      const code = (data as any)?.code || (data as any)?.otp;
       if (code) console.log('OTP code:', code);
 
       // Reset inputs and restart timer
@@ -235,8 +252,11 @@ export default function OTPInput() {
         });
       }, 1000);
     } catch (e) {
-      console.error('OTP resend error:', e);
-      setError('Network error. Please try again.');
+      if (__DEV__) {
+        console.log('OTP resend error:', e);
+      }
+      if (e instanceof AppError) setError(e.message || 'Network error. Please try again.');
+      else setError('Network error. Please try again.');
     } finally {
       setIsResending(false);
     }
@@ -269,6 +289,15 @@ export default function OTPInput() {
           opacity: enterOpacity,
         }}
       >
+        {/* Error banner (top) with reserved space to avoid layout flicker */}
+        <View style={{ position: 'relative', height: 56, marginBottom: 12 }}>
+          <ErrorBanner
+            message={error || null}
+            onDismiss={() => setError('')}
+            style={{ position: 'absolute', left: 0, right: 0 }}
+          />
+        </View>
+
         {/* Icon */}
         <View style={styles.iconWrap}>
           <View style={styles.iconCircle}>
@@ -327,12 +356,7 @@ export default function OTPInput() {
             ))}
           </View>
 
-          {/* Error */}
-          {!!error && (
-            <View style={{ alignItems: 'center', marginTop: 12 }}>
-              <Text style={{ color: '#ef4444', fontSize: 12 }}>{error}</Text>
-            </View>
-          )}
+          {/* Error moved to top banner */}
 
           {/* Progress dots */}
           <View style={styles.progressRow}>

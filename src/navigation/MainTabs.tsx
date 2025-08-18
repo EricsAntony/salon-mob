@@ -4,7 +4,7 @@ import { MaterialIcons } from '@expo/vector-icons';
 
 import Bookings from '../screens/Booking/Bookings';
 import Profile from '../screens/Profile/Profile';
-import SalonList from '../screens/Salon/SalonList';
+import Dashboard from '../screens/Dashboard/Dashboard';
 
 const Tab = createBottomTabNavigator();
 
@@ -13,7 +13,7 @@ export default function MainTabs() {
     <Tab.Navigator screenOptions={{ headerShown: true }}>
       <Tab.Screen
         name="Home"
-        component={SalonList}
+        component={Dashboard}
         options={{
           tabBarIcon: ({ color, size }) => <MaterialIcons name="home" color={color} size={size} />,
         }}

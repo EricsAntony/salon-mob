@@ -9,5 +9,7 @@ export default ({ config }: { config: ExpoConfig }): ExpoConfig => ({
   extra: {
     API_URL: process.env.API_URL ?? 'https://example.com/api',
     APP_ENV: process.env.APP_ENV ?? 'development',
+    TERMS_URL: process.env.TERMS_URL ?? 'https://example.com/terms',
+    REQUEST_TIMEOUT_MS: Number(process.env.REQUEST_TIMEOUT_MS ?? 12000),
   },
 });
