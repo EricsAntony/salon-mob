@@ -6,18 +6,20 @@ import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
 
 import authReducer from './slices/authSlice';
 import uiReducer from './slices/uiSlice';
+import locationReducer from './slices/locationSlice';
 import { baseApi } from '../api/baseApi';
 
 const rootReducer = combineReducers({
   auth: authReducer,
   ui: uiReducer,
+  location: locationReducer,
   [baseApi.reducerPath]: baseApi.reducer,
 });
 
 const persistConfig = {
   key: 'root',
   storage: AsyncStorage,
-  whitelist: ['auth', 'ui'],
+  whitelist: ['auth', 'ui', 'location'],
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

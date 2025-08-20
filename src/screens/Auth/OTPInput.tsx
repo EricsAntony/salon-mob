@@ -19,7 +19,7 @@ import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context'
 import { storage } from '../../utils/storage';
 import { AppError } from '../../utils/errors';
 import { useAppDispatch } from '../../store';
-import { setToken } from '../../store/slices/authSlice';
+import { setCredentials, setToken } from '../../store/slices/authSlice';
 import { API_URL } from '../../utils/env';
 import { postJson } from '../../utils/network';
 import ErrorBanner from '../../components/ErrorBanner';
@@ -191,7 +191,23 @@ export default function OTPInput() {
       if (csrfTokenBody) await storage.set('auth.csrfToken', csrfTokenBody);
 
       if (accessToken) {
-        dispatch(setToken(accessToken));
+        // Try to capture user_id from response body
+        const userId: string | undefined = data?.user_id || undefined;
+
+        if (userId) {
+          dispatch(
+            setCredentials({
+              token: accessToken,
+              user: {
+                id: String(userId),
+                name: (data?.user?.name as string) || '',
+                email: (data?.user?.email as string) || '',
+              },
+            } as any),
+          );
+        } else {
+          dispatch(setToken(accessToken));
+        }
         await storage.set('auth.accessToken', accessToken);
       }
 

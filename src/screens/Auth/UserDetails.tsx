@@ -15,7 +15,7 @@ import { Feather, MaterialCommunityIcons } from '@expo/vector-icons';
 import { useNavigation, useRoute } from '@react-navigation/native';
 import { storage } from '../../utils/storage';
 import { useAppDispatch } from '../../store';
-import { setToken } from '../../store/slices/authSlice';
+import { setCredentials, setToken } from '../../store/slices/authSlice';
 import { AppError } from '../../utils/errors';
 import { API_URL } from '../../utils/env';
 import { postJson } from '../../utils/network';
@@ -128,6 +128,21 @@ export default function UserDetailsScreen() {
         // Persist and set token; AppNavigator will switch to MainTabs
         dispatch(setToken(accessToken));
         await storage.set('auth.accessToken', accessToken);
+      }
+
+      // Extract and store user_id for future use
+      const userId: string | undefined = data?.user_id || undefined;
+      if (accessToken && userId) {
+        dispatch(
+          setCredentials({
+            token: accessToken,
+            user: {
+              id: String(userId),
+              name: `${formData.firstName.trim()} ${formData.lastName.trim()}`.trim(),
+              email: formData.email || '',
+            },
+          } as any),
+        );
       }
 
       const setCookie = res.headers.get('set-cookie');
