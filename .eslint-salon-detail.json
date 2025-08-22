@@ -1,0 +1,1215 @@
+[
+  {
+    "filePath": "C:\\hudini-repo\\pocs\\salon-mob\\src\\screens\\Salon\\SalonDetail.tsx",
+    "messages": [
+      {
+        "ruleId": "prettier/prettier",
+        "severity": 2,
+        "message": "Replace `·View,·Text·as·RNText,·ImageBackground,·Image,·ScrollView,·TouchableOpacity,·StyleSheet,·NativeScrollEvent,·NativeSyntheticEvent,·Platform,·UIManager,·LayoutAnimation·` with `␍⏎··View,␍⏎··Text·as·RNText,␍⏎··ImageBackground,␍⏎··Image,␍⏎··ScrollView,␍⏎··TouchableOpacity,␍⏎··StyleSheet,␍⏎··NativeScrollEvent,␍⏎··NativeSyntheticEvent,␍⏎··Platform,␍⏎··UIManager,␍⏎··LayoutAnimation,␍⏎`",
+        "line": 2,
+        "column": 9,
+        "nodeType": null,
+        "messageId": "replace",
+        "endLine": 2,
+        "endColumn": 176,
+        "fix": {
+          "range": [36, 203],
+          "text": "\r\n  View,\r\n  Text as RNText,\r\n  ImageBackground,\r\n  Image,\r\n  ScrollView,\r\n  TouchableOpacity,\r\n  StyleSheet,\r\n  NativeScrollEvent,\r\n  NativeSyntheticEvent,\r\n  Platform,\r\n  UIManager,\r\n  LayoutAnimation,\r\n"
+        }
+      },
+      {
+        "ruleId": "prettier/prettier",
+        "severity": 2,
+        "message": "Replace `·name:·string;·role?:·string;·avatarUrl?:·string;·rating?:·number;·specialties?:·string[];·bio?:·string` with `␍⏎····name:·string;␍⏎····role?:·string;␍⏎····avatarUrl?:·string;␍⏎····rating?:·number;␍⏎····specialties?:·string[];␍⏎····bio?:·string;␍⏎·`",
+        "line": 24,
+        "column": 21,
+        "nodeType": null,
+        "messageId": "replace",
+        "endLine": 24,
+        "endColumn": 124,
+        "fix": {
+          "range": [917, 1020],
+          "text": "\r\n    name: string;\r\n    role?: string;\r\n    avatarUrl?: string;\r\n    rating?: number;\r\n    specialties?: string[];\r\n    bio?: string;\r\n "
+        }
+      },
+      {
+        "ruleId": "prettier/prettier",
+        "severity": 2,
+        "message": "Insert `␍⏎····`",
+        "line": 40,
+        "column": 20,
+        "nodeType": null,
+        "messageId": "insert",
+        "endLine": 40,
+        "endColumn": 20,
+        "fix": { "range": [1747, 1747], "text": "\r\n    " }
+      },
+      {
+        "ruleId": "prettier/prettier",
+        "severity": 2,
+        "message": "Replace `····` with `······`",
+        "line": 41,
+        "column": 1,
+        "nodeType": null,
+        "messageId": "replace",
+        "endLine": 41,
+        "endColumn": 5,
+        "fix": { "range": [1792, 1796], "text": "      " }
+      },
+      {
+        "ruleId": "prettier/prettier",
+        "severity": 2,
+        "message": "Insert `··`",
+        "line": 42,
+        "column": 5,
+        "nodeType": null,
+        "messageId": "insert",
+        "endLine": 42,
+        "endColumn": 5,
+        "fix": { "range": [1818, 1818], "text": "  " }
+      },
+      {
+        "ruleId": "prettier/prettier",
+        "severity": 2,
+        "message": "Replace `········` with `··········`",
+        "line": 43,
+        "column": 1,
+        "nodeType": null,
+        "messageId": "replace",
+        "endLine": 43,
+        "endColumn": 9,
+        "fix": { "range": [1823, 1831], "text": "          " }
+      },
+      {
+        "ruleId": "prettier/prettier",
+        "severity": 2,
+        "message": "Insert `··`",
+        "line": 44,
+        "column": 1,
+        "nodeType": null,
+        "messageId": "insert",
+        "endLine": 44,
+        "endColumn": 1,
+        "fix": { "range": [1846, 1846], "text": "  " }
+      },
+      {
+        "ruleId": "prettier/prettier",
+        "severity": 2,
+        "message": "Insert `··`",
+        "line": 45,
+        "column": 1,
+        "nodeType": null,
+        "messageId": "insert",
+        "endLine": 45,
+        "endColumn": 1,
+        "fix": { "range": [2180, 2180], "text": "  " }
+      },
+      {
+        "ruleId": "prettier/prettier",
+        "severity": 2,
+        "message": "Replace `]` with `··]␍⏎··`",
+        "line": 46,
+        "column": 7,
+        "nodeType": null,
+        "messageId": "replace",
+        "endLine": 46,
+        "endColumn": 8,
+        "fix": { "range": [2520, 2521], "text": "  ]\r\n  " }
+      },
+      {
+        "ruleId": "prettier/prettier",
+        "severity": 2,
+        "message": "Delete `␍⏎···`",
+        "line": 50,
+        "column": 19,
+        "nodeType": null,
+        "messageId": "delete",
+        "endLine": 51,
+        "endColumn": 4,
+        "fix": { "range": [2823, 2828], "text": "" }
+      },
+      {
+        "ruleId": "prettier/prettier",
+        "severity": 2,
+        "message": "Delete `··`",
+        "line": 52,
+        "column": 5,
+        "nodeType": null,
+        "messageId": "delete",
+        "endLine": 52,
+        "endColumn": 7,
+        "fix": { "range": [2855, 2857], "text": "" }
+      },
+      {
+        "ruleId": "prettier/prettier",
+        "severity": 2,
+        "message": "Delete `··`",
+        "line": 53,
+        "column": 1,
+        "nodeType": null,
+        "messageId": "delete",
+        "endLine": 53,
+        "endColumn": 3,
+        "fix": { "range": [2860, 2862], "text": "" }
+      },
+      {
+        "ruleId": "prettier/prettier",
+        "severity": 2,
+        "message": "Replace `········description:` with `······description:␍⏎·······`",
+        "line": 54,
+        "column": 1,
+        "nodeType": null,
+        "messageId": "replace",
+        "endLine": 54,
+        "endColumn": 21,
+        "fix": { "range": [2887, 2907], "text": "      description:\r\n       " }
+      },
+      {
+        "ruleId": "no-useless-escape",
+        "severity": 1,
+        "message": "Unnecessary escape character: \\'.",
+        "line": 54,
+        "column": 28,
+        "nodeType": "Literal",
+        "messageId": "unnecessaryEscape",
+        "endLine": 54,
+        "endColumn": 29,
+        "suggestions": [
+          {
+            "messageId": "removeEscape",
+            "fix": { "range": [2914, 2915], "text": "" },
+            "desc": "Remove the `\\`. This maintains the current functionality."
+          },
+          {
+            "messageId": "escapeBackslash",
+            "fix": { "range": [2914, 2914], "text": "\\" },
+            "desc": "Replace the `\\` with `\\\\` to include the actual backslash character."
+          }
+        ]
+      },
+      {
+        "ruleId": "no-useless-escape",
+        "severity": 1,
+        "message": "Unnecessary escape character: \\'.",
+        "line": 54,
+        "column": 63,
+        "nodeType": "Literal",
+        "messageId": "unnecessaryEscape",
+        "endLine": 54,
+        "endColumn": 64,
+        "suggestions": [
+          {
+            "messageId": "removeEscape",
+            "fix": { "range": [2949, 2950], "text": "" },
+            "desc": "Remove the `\\`. This maintains the current functionality."
+          },
+          {
+            "messageId": "escapeBackslash",
+            "fix": { "range": [2949, 2949], "text": "\\" },
+            "desc": "Replace the `\\` with `\\\\` to include the actual backslash character."
+          }
+        ]
+      },
+      {
+        "ruleId": "no-useless-escape",
+        "severity": 1,
+        "message": "Unnecessary escape character: \\'.",
+        "line": 54,
+        "column": 103,
+        "nodeType": "Literal",
+        "messageId": "unnecessaryEscape",
+        "endLine": 54,
+        "endColumn": 104,
+        "suggestions": [
+          {
+            "messageId": "removeEscape",
+            "fix": { "range": [2989, 2990], "text": "" },
+            "desc": "Remove the `\\`. This maintains the current functionality."
+          },
+          {
+            "messageId": "escapeBackslash",
+            "fix": { "range": [2989, 2989], "text": "\\" },
+            "desc": "Replace the `\\` with `\\\\` to include the actual backslash character."
+          }
+        ]
+      },
+      {
+        "ruleId": "prettier/prettier",
+        "severity": 2,
+        "message": "Delete `··`",
+        "line": 55,
+        "column": 7,
+        "nodeType": null,
+        "messageId": "delete",
+        "endLine": 55,
+        "endColumn": 9,
+        "fix": { "range": [3029, 3031], "text": "" }
+      },
+      {
+        "ruleId": "prettier/prettier",
+        "severity": 2,
+        "message": "Replace `······` with `····`",
+        "line": 56,
+        "column": 1,
+        "nodeType": null,
+        "messageId": "replace",
+        "endLine": 56,
+        "endColumn": 7,
+        "fix": { "range": [3044, 3050], "text": "    " }
+      },
+      {
+        "ruleId": "prettier/prettier",
+        "severity": 2,
+        "message": "Delete `··`",
+        "line": 57,
+        "column": 5,
+        "nodeType": null,
+        "messageId": "delete",
+        "endLine": 57,
+        "endColumn": 7,
+        "fix": { "range": [3058, 3060], "text": "" }
+      },
+      {
+        "ruleId": "prettier/prettier",
+        "severity": 2,
+        "message": "Delete `··`",
+        "line": 58,
+        "column": 1,
+        "nodeType": null,
+        "messageId": "delete",
+        "endLine": 58,
+        "endColumn": 3,
+        "fix": { "range": [3063, 3065], "text": "" }
+      },
+      {
+        "ruleId": "prettier/prettier",
+        "severity": 2,
+        "message": "Replace `··description:` with `description:␍⏎·······`",
+        "line": 59,
+        "column": 7,
+        "nodeType": null,
+        "messageId": "replace",
+        "endLine": 59,
+        "endColumn": 21,
+        "fix": { "range": [3102, 3116], "text": "description:\r\n       " }
+      },
+      {
+        "ruleId": "prettier/prettier",
+        "severity": 2,
+        "message": "Delete `··`",
+        "line": 60,
+        "column": 7,
+        "nodeType": null,
+        "messageId": "delete",
+        "endLine": 60,
+        "endColumn": 9,
+        "fix": { "range": [3223, 3225], "text": "" }
+      },
+      {
+        "ruleId": "prettier/prettier",
+        "severity": 2,
+        "message": "Delete `··`",
+        "line": 61,
+        "column": 1,
+        "nodeType": null,
+        "messageId": "delete",
+        "endLine": 61,
+        "endColumn": 3,
+        "fix": { "range": [3238, 3240], "text": "" }
+      },
+      {
+        "ruleId": "prettier/prettier",
+        "severity": 2,
+        "message": "Delete `··`",
+        "line": 62,
+        "column": 5,
+        "nodeType": null,
+        "messageId": "delete",
+        "endLine": 62,
+        "endColumn": 7,
+        "fix": { "range": [3252, 3254], "text": "" }
+      },
+      {
+        "ruleId": "prettier/prettier",
+        "severity": 2,
+        "message": "Replace `········` with `······`",
+        "line": 63,
+        "column": 1,
+        "nodeType": null,
+        "messageId": "replace",
+        "endLine": 63,
+        "endColumn": 9,
+        "fix": { "range": [3257, 3265], "text": "      " }
+      },
+      {
+        "ruleId": "prettier/prettier",
+        "severity": 2,
+        "message": "Replace `··description:` with `description:␍⏎·······`",
+        "line": 64,
+        "column": 7,
+        "nodeType": null,
+        "messageId": "replace",
+        "endLine": 64,
+        "endColumn": 21,
+        "fix": { "range": [3291, 3305], "text": "description:\r\n       " }
+      },
+      {
+        "ruleId": "prettier/prettier",
+        "severity": 2,
+        "message": "Delete `··`",
+        "line": 65,
+        "column": 7,
+        "nodeType": null,
+        "messageId": "delete",
+        "endLine": 65,
+        "endColumn": 9,
+        "fix": { "range": [3416, 3418], "text": "" }
+      },
+      {
+        "ruleId": "prettier/prettier",
+        "severity": 2,
+        "message": "Delete `··`",
+        "line": 66,
+        "column": 5,
+        "nodeType": null,
+        "messageId": "delete",
+        "endLine": 66,
+        "endColumn": 7,
+        "fix": { "range": [3435, 3437], "text": "" }
+      },
+      {
+        "ruleId": "prettier/prettier",
+        "severity": 2,
+        "message": "Replace `····` with `··`",
+        "line": 67,
+        "column": 1,
+        "nodeType": null,
+        "messageId": "replace",
+        "endLine": 67,
+        "endColumn": 5,
+        "fix": { "range": [3441, 3445], "text": "  " }
+      },
+      {
+        "ruleId": "prettier/prettier",
+        "severity": 2,
+        "message": "Delete `␍⏎···`",
+        "line": 68,
+        "column": 19,
+        "nodeType": null,
+        "messageId": "delete",
+        "endLine": 69,
+        "endColumn": 4,
+        "fix": { "range": [3467, 3472], "text": "" }
+      },
+      {
+        "ruleId": "prettier/prettier",
+        "severity": 2,
+        "message": "Delete `··`",
+        "line": 70,
+        "column": 5,
+        "nodeType": null,
+        "messageId": "delete",
+        "endLine": 70,
+        "endColumn": 7,
+        "fix": { "range": [3499, 3501], "text": "" }
+      },
+      {
+        "ruleId": "prettier/prettier",
+        "severity": 2,
+        "message": "Replace `········` with `······`",
+        "line": 71,
+        "column": 1,
+        "nodeType": null,
+        "messageId": "replace",
+        "endLine": 71,
+        "endColumn": 9,
+        "fix": { "range": [3504, 3512], "text": "      " }
+      },
+      {
+        "ruleId": "prettier/prettier",
+        "severity": 2,
+        "message": "Delete `··`",
+        "line": 72,
+        "column": 1,
+        "nodeType": null,
+        "messageId": "delete",
+        "endLine": 72,
+        "endColumn": 3,
+        "fix": { "range": [3535, 3537], "text": "" }
+      },
+      {
+        "ruleId": "prettier/prettier",
+        "severity": 2,
+        "message": "Replace `········` with `······`",
+        "line": 73,
+        "column": 1,
+        "nodeType": null,
+        "messageId": "replace",
+        "endLine": 73,
+        "endColumn": 9,
+        "fix": { "range": [3586, 3594], "text": "      " }
+      },
+      {
+        "ruleId": "prettier/prettier",
+        "severity": 2,
+        "message": "Delete `··`",
+        "line": 74,
+        "column": 7,
+        "nodeType": null,
+        "messageId": "delete",
+        "endLine": 74,
+        "endColumn": 9,
+        "fix": { "range": [3648, 3650], "text": "" }
+      },
+      {
+        "ruleId": "prettier/prettier",
+        "severity": 2,
+        "message": "Replace `········` with `······`",
+        "line": 75,
+        "column": 1,
+        "nodeType": null,
+        "messageId": "replace",
+        "endLine": 75,
+        "endColumn": 9,
+        "fix": { "range": [3662, 3670], "text": "      " }
+      },
+      {
+        "ruleId": "prettier/prettier",
+        "severity": 2,
+        "message": "Replace `········bio:␍⏎·········` with `······bio:`",
+        "line": 76,
+        "column": 1,
+        "nodeType": null,
+        "messageId": "replace",
+        "endLine": 77,
+        "endColumn": 10,
+        "fix": { "range": [3709, 3732], "text": "      bio:" }
+      },
+      {
+        "ruleId": "prettier/prettier",
+        "severity": 2,
+        "message": "Delete `··`",
+        "line": 78,
+        "column": 5,
+        "nodeType": null,
+        "messageId": "delete",
+        "endLine": 78,
+        "endColumn": 7,
+        "fix": { "range": [3897, 3899], "text": "" }
+      },
+      {
+        "ruleId": "prettier/prettier",
+        "severity": 2,
+        "message": "Delete `··`",
+        "line": 79,
+        "column": 1,
+        "nodeType": null,
+        "messageId": "delete",
+        "endLine": 79,
+        "endColumn": 3,
+        "fix": { "range": [3903, 3905], "text": "" }
+      },
+      {
+        "ruleId": "prettier/prettier",
+        "severity": 2,
+        "message": "Delete `··`",
+        "line": 80,
+        "column": 7,
+        "nodeType": null,
+        "messageId": "delete",
+        "endLine": 80,
+        "endColumn": 9,
+        "fix": { "range": [3918, 3920], "text": "" }
+      },
+      {
+        "ruleId": "prettier/prettier",
+        "severity": 2,
+        "message": "Delete `··`",
+        "line": 81,
+        "column": 1,
+        "nodeType": null,
+        "messageId": "delete",
+        "endLine": 81,
+        "endColumn": 3,
+        "fix": { "range": [3943, 3945], "text": "" }
+      },
+      {
+        "ruleId": "prettier/prettier",
+        "severity": 2,
+        "message": "Delete `··`",
+        "line": 82,
+        "column": 7,
+        "nodeType": null,
+        "messageId": "delete",
+        "endLine": 82,
+        "endColumn": 9,
+        "fix": { "range": [3996, 3998], "text": "" }
+      },
+      {
+        "ruleId": "prettier/prettier",
+        "severity": 2,
+        "message": "Delete `··`",
+        "line": 83,
+        "column": 1,
+        "nodeType": null,
+        "messageId": "delete",
+        "endLine": 83,
+        "endColumn": 3,
+        "fix": { "range": [4045, 4047], "text": "" }
+      },
+      {
+        "ruleId": "prettier/prettier",
+        "severity": 2,
+        "message": "Delete `··`",
+        "line": 84,
+        "column": 7,
+        "nodeType": null,
+        "messageId": "delete",
+        "endLine": 84,
+        "endColumn": 9,
+        "fix": { "range": [4071, 4073], "text": "" }
+      },
+      {
+        "ruleId": "prettier/prettier",
+        "severity": 2,
+        "message": "Replace `··bio:␍⏎··········\"David·is·a·master·stylist·with·a·passion·for·creating·modern·and·classic·looks.·He·excels·in·haircuts,·styling,·and·men’s·grooming.\"` with `bio:·'David·is·a·master·stylist·with·a·passion·for·creating·modern·and·classic·looks.·He·excels·in·haircuts,·styling,·and·men’s·grooming.'`",
+        "line": 85,
+        "column": 7,
+        "nodeType": null,
+        "messageId": "replace",
+        "endLine": 86,
+        "endColumn": 144,
+        "fix": {
+          "range": [4118, 4269],
+          "text": "bio: 'David is a master stylist with a passion for creating modern and classic looks. He excels in haircuts, styling, and men’s grooming.'"
+        }
+      },
+      {
+        "ruleId": "prettier/prettier",
+        "severity": 2,
+        "message": "Delete `··`",
+        "line": 87,
+        "column": 1,
+        "nodeType": null,
+        "messageId": "delete",
+        "endLine": 87,
+        "endColumn": 3,
+        "fix": { "range": [4272, 4274], "text": "" }
+      },
+      {
+        "ruleId": "prettier/prettier",
+        "severity": 2,
+        "message": "Replace `······` with `····`",
+        "line": 88,
+        "column": 1,
+        "nodeType": null,
+        "messageId": "replace",
+        "endLine": 88,
+        "endColumn": 7,
+        "fix": { "range": [4282, 4288], "text": "    " }
+      },
+      {
+        "ruleId": "prettier/prettier",
+        "severity": 2,
+        "message": "Delete `··`",
+        "line": 89,
+        "column": 1,
+        "nodeType": null,
+        "messageId": "delete",
+        "endLine": 89,
+        "endColumn": 3,
+        "fix": { "range": [4291, 4293], "text": "" }
+      },
+      {
+        "ruleId": "prettier/prettier",
+        "severity": 2,
+        "message": "Delete `··`",
+        "line": 90,
+        "column": 1,
+        "nodeType": null,
+        "messageId": "delete",
+        "endLine": 90,
+        "endColumn": 3,
+        "fix": { "range": [4324, 4326], "text": "" }
+      },
+      {
+        "ruleId": "prettier/prettier",
+        "severity": 2,
+        "message": "Delete `··`",
+        "line": 91,
+        "column": 1,
+        "nodeType": null,
+        "messageId": "delete",
+        "endLine": 91,
+        "endColumn": 3,
+        "fix": { "range": [4373, 4375], "text": "" }
+      },
+      {
+        "ruleId": "prettier/prettier",
+        "severity": 2,
+        "message": "Delete `··`",
+        "line": 92,
+        "column": 7,
+        "nodeType": null,
+        "messageId": "delete",
+        "endLine": 92,
+        "endColumn": 9,
+        "fix": { "range": [4435, 4437], "text": "" }
+      },
+      {
+        "ruleId": "prettier/prettier",
+        "severity": 2,
+        "message": "Delete `··`",
+        "line": 93,
+        "column": 1,
+        "nodeType": null,
+        "messageId": "delete",
+        "endLine": 93,
+        "endColumn": 3,
+        "fix": { "range": [4449, 4451], "text": "" }
+      },
+      {
+        "ruleId": "prettier/prettier",
+        "severity": 2,
+        "message": "Replace `··bio:␍⏎·········` with `bio:`",
+        "line": 94,
+        "column": 7,
+        "nodeType": null,
+        "messageId": "replace",
+        "endLine": 95,
+        "endColumn": 10,
+        "fix": { "range": [4503, 4520], "text": "bio:" }
+      },
+      {
+        "ruleId": "prettier/prettier",
+        "severity": 2,
+        "message": "Delete `··`",
+        "line": 96,
+        "column": 5,
+        "nodeType": null,
+        "messageId": "delete",
+        "endLine": 96,
+        "endColumn": 7,
+        "fix": { "range": [4682, 4684], "text": "" }
+      },
+      {
+        "ruleId": "prettier/prettier",
+        "severity": 2,
+        "message": "Delete `··`",
+        "line": 97,
+        "column": 1,
+        "nodeType": null,
+        "messageId": "delete",
+        "endLine": 97,
+        "endColumn": 3,
+        "fix": { "range": [4688, 4690], "text": "" }
+      },
+      {
+        "ruleId": "prettier/prettier",
+        "severity": 2,
+        "message": "Insert `,`",
+        "line": 106,
+        "column": 67,
+        "nodeType": null,
+        "messageId": "insert",
+        "endLine": 106,
+        "endColumn": 67,
+        "fix": { "range": [5482, 5482], "text": "," }
+      },
+      {
+        "ruleId": "prettier/prettier",
+        "severity": 2,
+        "message": "Replace `␍⏎······Platform.OS·===·'android'·&&␍⏎······!isFabric·&&␍⏎······UIManager.setLayoutAnimationEnabledExperimental␍⏎····` with `Platform.OS·===·'android'·&&·!isFabric·&&·UIManager.setLayoutAnimationEnabledExperimental`",
+        "line": 115,
+        "column": 9,
+        "nodeType": null,
+        "messageId": "replace",
+        "endLine": 119,
+        "endColumn": 5,
+        "fix": {
+          "range": [5870, 5987],
+          "text": "Platform.OS === 'android' && !isFabric && UIManager.setLayoutAnimationEnabledExperimental"
+        }
+      },
+      {
+        "ruleId": "prettier/prettier",
+        "severity": 2,
+        "message": "Insert `␍⏎·············`",
+        "line": 187,
+        "column": 18,
+        "nodeType": null,
+        "messageId": "insert",
+        "endLine": 187,
+        "endColumn": 18,
+        "fix": { "range": [8527, 8527], "text": "\r\n             " }
+      },
+      {
+        "ruleId": "prettier/prettier",
+        "severity": 2,
+        "message": "Insert `··`",
+        "line": 188,
+        "column": 1,
+        "nodeType": null,
+        "messageId": "insert",
+        "endLine": 188,
+        "endColumn": 1,
+        "fix": { "range": [8538, 8538], "text": "  " }
+      },
+      {
+        "ruleId": "prettier/prettier",
+        "severity": 2,
+        "message": "Insert `··`",
+        "line": 189,
+        "column": 1,
+        "nodeType": null,
+        "messageId": "insert",
+        "endLine": 189,
+        "endColumn": 1,
+        "fix": { "range": [8569, 8569], "text": "  " }
+      },
+      {
+        "ruleId": "prettier/prettier",
+        "severity": 2,
+        "message": "Replace `]}>Overview` with `··]}␍⏎············>␍⏎··············Overview␍⏎············`",
+        "line": 190,
+        "column": 13,
+        "nodeType": null,
+        "messageId": "replace",
+        "endLine": 190,
+        "endColumn": 24,
+        "fix": {
+          "range": [8670, 8681],
+          "text": "  ]}\r\n            >\r\n              Overview\r\n            "
+        }
+      },
+      {
+        "ruleId": "prettier/prettier",
+        "severity": 2,
+        "message": "Insert `␍⏎·············`",
+        "line": 199,
+        "column": 18,
+        "nodeType": null,
+        "messageId": "insert",
+        "endLine": 199,
+        "endColumn": 18,
+        "fix": { "range": [9034, 9034], "text": "\r\n             " }
+      },
+      {
+        "ruleId": "prettier/prettier",
+        "severity": 2,
+        "message": "Insert `··`",
+        "line": 200,
+        "column": 1,
+        "nodeType": null,
+        "messageId": "insert",
+        "endLine": 200,
+        "endColumn": 1,
+        "fix": { "range": [9045, 9045], "text": "  " }
+      },
+      {
+        "ruleId": "prettier/prettier",
+        "severity": 2,
+        "message": "Insert `··`",
+        "line": 201,
+        "column": 1,
+        "nodeType": null,
+        "messageId": "insert",
+        "endLine": 201,
+        "endColumn": 1,
+        "fix": { "range": [9076, 9076], "text": "  " }
+      },
+      {
+        "ruleId": "prettier/prettier",
+        "severity": 2,
+        "message": "Replace `]}>Reviews` with `··]}␍⏎············>␍⏎··············Reviews␍⏎············`",
+        "line": 202,
+        "column": 13,
+        "nodeType": null,
+        "messageId": "replace",
+        "endLine": 202,
+        "endColumn": 23,
+        "fix": {
+          "range": [9176, 9186],
+          "text": "  ]}\r\n            >\r\n              Reviews\r\n            "
+        }
+      },
+      {
+        "ruleId": "prettier/prettier",
+        "severity": 2,
+        "message": "Insert `␍⏎·············`",
+        "line": 211,
+        "column": 18,
+        "nodeType": null,
+        "messageId": "insert",
+        "endLine": 211,
+        "endColumn": 18,
+        "fix": { "range": [9541, 9541], "text": "\r\n             " }
+      },
+      {
+        "ruleId": "prettier/prettier",
+        "severity": 2,
+        "message": "Insert `··`",
+        "line": 212,
+        "column": 1,
+        "nodeType": null,
+        "messageId": "insert",
+        "endLine": 212,
+        "endColumn": 1,
+        "fix": { "range": [9552, 9552], "text": "  " }
+      },
+      {
+        "ruleId": "prettier/prettier",
+        "severity": 2,
+        "message": "Insert `··`",
+        "line": 213,
+        "column": 1,
+        "nodeType": null,
+        "messageId": "insert",
+        "endLine": 213,
+        "endColumn": 1,
+        "fix": { "range": [9583, 9583], "text": "  " }
+      },
+      {
+        "ruleId": "prettier/prettier",
+        "severity": 2,
+        "message": "Replace `]}>Stylists` with `··]}␍⏎············>␍⏎··············Stylists␍⏎············`",
+        "line": 214,
+        "column": 13,
+        "nodeType": null,
+        "messageId": "replace",
+        "endLine": 214,
+        "endColumn": 24,
+        "fix": {
+          "range": [9684, 9695],
+          "text": "  ]}\r\n            >\r\n              Stylists\r\n            "
+        }
+      },
+      {
+        "ruleId": "prettier/prettier",
+        "severity": 2,
+        "message": "Insert `␍⏎·················`",
+        "line": 230,
+        "column": 30,
+        "nodeType": null,
+        "messageId": "insert",
+        "endLine": 230,
+        "endColumn": 30,
+        "fix": { "range": [10314, 10314], "text": "\r\n                 " }
+      },
+      {
+        "ruleId": "prettier/prettier",
+        "severity": 2,
+        "message": "Insert `··`",
+        "line": 231,
+        "column": 19,
+        "nodeType": null,
+        "messageId": "insert",
+        "endLine": 231,
+        "endColumn": 19,
+        "fix": { "range": [10386, 10386], "text": "  " }
+      },
+      {
+        "ruleId": "prettier/prettier",
+        "severity": 2,
+        "message": "Replace `··················` with `····················`",
+        "line": 232,
+        "column": 1,
+        "nodeType": null,
+        "messageId": "replace",
+        "endLine": 232,
+        "endColumn": 19,
+        "fix": { "range": [10420, 10438], "text": "                    " }
+      },
+      {
+        "ruleId": "prettier/prettier",
+        "severity": 2,
+        "message": "Insert `··`",
+        "line": 233,
+        "column": 1,
+        "nodeType": null,
+        "messageId": "insert",
+        "endLine": 233,
+        "endColumn": 1,
+        "fix": { "range": [10463, 10463], "text": "  " }
+      },
+      {
+        "ruleId": "prettier/prettier",
+        "severity": 2,
+        "message": "Insert `··`",
+        "line": 234,
+        "column": 23,
+        "nodeType": null,
+        "messageId": "insert",
+        "endLine": 234,
+        "endColumn": 23,
+        "fix": { "range": [10525, 10525], "text": "  " }
+      },
+      {
+        "ruleId": "prettier/prettier",
+        "severity": 2,
+        "message": "Insert `··`",
+        "line": 235,
+        "column": 1,
+        "nodeType": null,
+        "messageId": "insert",
+        "endLine": 235,
+        "endColumn": 1,
+        "fix": { "range": [10548, 10548], "text": "  " }
+      },
+      {
+        "ruleId": "react/no-unstable-nested-components",
+        "severity": 1,
+        "message": "Do not define components during render. React will see a new component type on every render and destroy the entire subtree’s DOM nodes and state (https://reactjs.org/docs/reconciliation.html#elements-of-different-types). Instead, move this component definition out of the parent component “SalonDetail” and pass data as props. If you want to allow component creation in props, set allowAsProps option to true.",
+        "line": 240,
+        "column": 30,
+        "nodeType": "ArrowFunctionExpression",
+        "endLine": 246,
+        "endColumn": 24
+      },
+      {
+        "ruleId": "prettier/prettier",
+        "severity": 2,
+        "message": "Insert `␍⏎·····························`",
+        "line": 265,
+        "column": 69,
+        "nodeType": null,
+        "messageId": "insert",
+        "endLine": 265,
+        "endColumn": 69,
+        "fix": { "range": [12200, 12200], "text": "\r\n                             " }
+      },
+      {
+        "ruleId": "prettier/prettier",
+        "severity": 2,
+        "message": "Replace `·key={i}·style={[styles.serviceItemRow,·i·<·lines.length·-·1·&&·styles.serviceDivider]}` with `␍⏎································key={i}␍⏎································style={[␍⏎··································styles.serviceItemRow,␍⏎··································i·<·lines.length·-·1·&&·styles.serviceDivider,␍⏎································]}␍⏎······························`",
+        "line": 268,
+        "column": 36,
+        "nodeType": null,
+        "messageId": "replace",
+        "endLine": 268,
+        "endColumn": 123,
+        "fix": {
+          "range": [12324, 12411],
+          "text": "\r\n                                key={i}\r\n                                style={[\r\n                                  styles.serviceItemRow,\r\n                                  i < lines.length - 1 && styles.serviceDivider,\r\n                                ]}\r\n                              "
+        }
+      },
+      {
+        "ruleId": "prettier/prettier",
+        "severity": 2,
+        "message": "Replace `<Text·style={styles.serviceItemDuration}>{duration}</Text>` with `(␍⏎····································<Text·style={styles.serviceItemDuration}>{duration}</Text>␍⏎··································)`",
+        "line": 271,
+        "column": 50,
+        "nodeType": null,
+        "messageId": "replace",
+        "endLine": 271,
+        "endColumn": 108,
+        "fix": {
+          "range": [12614, 12672],
+          "text": "(\r\n                                    <Text style={styles.serviceItemDuration}>{duration}</Text>\r\n                                  )"
+        }
+      },
+      {
+        "ruleId": "prettier/prettier",
+        "severity": 2,
+        "message": "Replace `<Text·style={styles.serviceDot}>·•·</Text>` with `(␍⏎····································<Text·style={styles.serviceDot}>·•·</Text>␍⏎··································)`",
+        "line": 272,
+        "column": 61,
+        "nodeType": null,
+        "messageId": "replace",
+        "endLine": 272,
+        "endColumn": 103,
+        "fix": {
+          "range": [12735, 12777],
+          "text": "(\r\n                                    <Text style={styles.serviceDot}> • </Text>\r\n                                  )"
+        }
+      },
+      {
+        "ruleId": "prettier/prettier",
+        "severity": 2,
+        "message": "Replace `·source={{·uri:·locationImageUrl·}}·style={styles.locationImage}·resizeMode=\"cover\"` with `␍⏎················source={{·uri:·locationImageUrl·}}␍⏎················style={styles.locationImage}␍⏎················resizeMode=\"cover\"␍⏎·············`",
+        "line": 288,
+        "column": 21,
+        "nodeType": null,
+        "messageId": "replace",
+        "endLine": 288,
+        "endColumn": 104,
+        "fix": {
+          "range": [13402, 13485],
+          "text": "\r\n                source={{ uri: locationImageUrl }}\r\n                style={styles.locationImage}\r\n                resizeMode=\"cover\"\r\n             "
+        }
+      },
+      {
+        "ruleId": "prettier/prettier",
+        "severity": 2,
+        "message": "Delete `␍⏎···················`",
+        "line": 344,
+        "column": 24,
+        "nodeType": null,
+        "messageId": "delete",
+        "endLine": 345,
+        "endColumn": 20,
+        "fix": { "range": [15893, 15914], "text": "" }
+      },
+      {
+        "ruleId": "prettier/prettier",
+        "severity": 2,
+        "message": "Delete `␍⏎···················`",
+        "line": 354,
+        "column": 24,
+        "nodeType": null,
+        "messageId": "delete",
+        "endLine": 355,
+        "endColumn": 20,
+        "fix": { "range": [16443, 16464], "text": "" }
+      },
+      {
+        "ruleId": "prettier/prettier",
+        "severity": 2,
+        "message": "Replace `·style={[styles.reviewAvatar,·{·alignItems:·'center',·justifyContent:·'center'·}]}>·` with `␍⏎························style={[␍⏎··························styles.reviewAvatar,␍⏎··························{·alignItems:·'center',·justifyContent:·'center'·},␍⏎························]}␍⏎······················>`",
+        "line": 365,
+        "column": 28,
+        "nodeType": null,
+        "messageId": "replace",
+        "endLine": 365,
+        "endColumn": 112,
+        "fix": {
+          "range": [17078, 17162],
+          "text": "\r\n                        style={[\r\n                          styles.reviewAvatar,\r\n                          { alignItems: 'center', justifyContent: 'center' },\r\n                        ]}\r\n                      >"
+        }
+      },
+      {
+        "ruleId": "prettier/prettier",
+        "severity": 2,
+        "message": "Replace `·name=\"account\"·size={22}·color={COLORS.textSecondary}` with `␍⏎··························name=\"account\"␍⏎··························size={22}␍⏎··························color={COLORS.textSecondary}␍⏎·······················`",
+        "line": 366,
+        "column": 48,
+        "nodeType": null,
+        "messageId": "replace",
+        "endLine": 366,
+        "endColumn": 102,
+        "fix": {
+          "range": [17211, 17265],
+          "text": "\r\n                          name=\"account\"\r\n                          size={22}\r\n                          color={COLORS.textSecondary}\r\n                       "
+        }
+      },
+      {
+        "ruleId": "prettier/prettier",
+        "severity": 2,
+        "message": "Replace `·name=\"thumb-up-outline\"·size={18}·color={COLORS.textSecondary}` with `␍⏎························name=\"thumb-up-outline\"␍⏎························size={18}␍⏎························color={COLORS.textSecondary}␍⏎·····················`",
+        "line": 387,
+        "column": 46,
+        "nodeType": null,
+        "messageId": "replace",
+        "endLine": 387,
+        "endColumn": 109,
+        "fix": {
+          "range": [18265, 18328],
+          "text": "\r\n                        name=\"thumb-up-outline\"\r\n                        size={18}\r\n                        color={COLORS.textSecondary}\r\n                     "
+        }
+      },
+      {
+        "ruleId": "prettier/prettier",
+        "severity": 2,
+        "message": "Replace `·name=\"message-processing-outline\"·size={18}·color={COLORS.textSecondary}` with `␍⏎························name=\"message-processing-outline\"␍⏎························size={18}␍⏎························color={COLORS.textSecondary}␍⏎·····················`",
+        "line": 391,
+        "column": 46,
+        "nodeType": null,
+        "messageId": "replace",
+        "endLine": 391,
+        "endColumn": 119,
+        "fix": {
+          "range": [18541, 18614],
+          "text": "\r\n                        name=\"message-processing-outline\"\r\n                        size={18}\r\n                        color={COLORS.textSecondary}\r\n                     "
+        }
+      },
+      {
+        "ruleId": "prettier/prettier",
+        "severity": 2,
+        "message": "Replace `·style={[styles.stylistAvatar,·{·backgroundColor:·COLORS.surfaceAlt,·alignItems:·'center',·justifyContent:·'center'·}]}` with `␍⏎························style={[␍⏎··························styles.stylistAvatar,␍⏎··························{␍⏎····························backgroundColor:·COLORS.surfaceAlt,␍⏎····························alignItems:·'center',␍⏎····························justifyContent:·'center',␍⏎··························},␍⏎························]}␍⏎······················`",
+        "line": 409,
+        "column": 28,
+        "nodeType": null,
+        "messageId": "replace",
+        "endLine": 409,
+        "endColumn": 147,
+        "fix": {
+          "range": [19321, 19440],
+          "text": "\r\n                        style={[\r\n                          styles.stylistAvatar,\r\n                          {\r\n                            backgroundColor: COLORS.surfaceAlt,\r\n                            alignItems: 'center',\r\n                            justifyContent: 'center',\r\n                          },\r\n                        ]}\r\n                      "
+        }
+      },
+      {
+        "ruleId": "prettier/prettier",
+        "severity": 2,
+        "message": "Replace `·name=\"account\"·size={28}·color={COLORS.textSecondary}` with `␍⏎··························name=\"account\"␍⏎··························size={28}␍⏎··························color={COLORS.textSecondary}␍⏎·······················`",
+        "line": 410,
+        "column": 48,
+        "nodeType": null,
+        "messageId": "replace",
+        "endLine": 410,
+        "endColumn": 102,
+        "fix": {
+          "range": [19490, 19544],
+          "text": "\r\n                          name=\"account\"\r\n                          size={28}\r\n                          color={COLORS.textSecondary}\r\n                       "
+        }
+      },
+      {
+        "ruleId": "prettier/prettier",
+        "severity": 2,
+        "message": "Replace `<Text·style={styles.stylistTagText}>{sp}</Text>` with `␍⏎······························<Text·style={styles.stylistTagText}>{sp}</Text>␍⏎····························`",
+        "line": 419,
+        "column": 71,
+        "nodeType": null,
+        "messageId": "replace",
+        "endLine": 419,
+        "endColumn": 118,
+        "fix": {
+          "range": [20080, 20127],
+          "text": "\r\n                              <Text style={styles.stylistTagText}>{sp}</Text>\r\n                            "
+        }
+      },
+      {
+        "ruleId": "@typescript-eslint/no-unused-vars",
+        "severity": 2,
+        "message": "'BottomNavItem' is defined but never used.",
+        "line": 467,
+        "column": 10,
+        "nodeType": null,
+        "messageId": "unusedVar",
+        "endLine": 467,
+        "endColumn": 23
+      },
+      {
+        "ruleId": "prettier/prettier",
+        "severity": 2,
+        "message": "Replace `·style={[styles.bottomNavLabel,·{·color:·active·?·COLORS.textPrimary·:·COLORS.textSecondary·}]}` with `␍⏎········style={[␍⏎··········styles.bottomNavLabel,␍⏎··········{·color:·active·?·COLORS.textPrimary·:·COLORS.textSecondary·},␍⏎········]}␍⏎······`",
+        "line": 475,
+        "column": 14,
+        "nodeType": null,
+        "messageId": "replace",
+        "endLine": 475,
+        "endColumn": 109,
+        "fix": {
+          "range": [21864, 21959],
+          "text": "\r\n        style={[\r\n          styles.bottomNavLabel,\r\n          { color: active ? COLORS.textPrimary : COLORS.textSecondary },\r\n        ]}\r\n      "
+        }
+      }
+    ],
+    "suppressedMessages": [],
+    "errorCount": 88,
+    "fatalErrorCount": 0,
+    "warningCount": 4,
+    "fixableErrorCount": 87,
+    "fixableWarningCount": 0,
+    "source": "import React from 'react';\r\nimport { View, Text as RNText, ImageBackground, Image, ScrollView, TouchableOpacity, StyleSheet, NativeScrollEvent, NativeSyntheticEvent, Platform, UIManager, LayoutAnimation } from 'react-native';\r\nimport { Text, Button, List } from 'react-native-paper';\r\nimport { SafeAreaView } from 'react-native-safe-area-context';\r\nimport MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';\r\nimport { useNavigation, useRoute } from '@react-navigation/native';\r\n\r\nconst COLORS = {\r\n  textPrimary: '#141118',\r\n  textSecondary: '#756388',\r\n  divider: '#e0dce5',\r\n  surfaceAlt: '#f2f0f4',\r\n  white: '#FFFFFF',\r\n  primaryBtn: '#8019e6',\r\n  accent: '#6C63FF',\r\n};\r\n\r\nexport type SalonDetailParams = {\r\n  name?: string;\r\n  heroImageUrl?: string;\r\n  gallery?: string[];\r\n  about?: string;\r\n  services?: Array<{ title: string; description: string; open?: boolean }>;\r\n  stylists?: Array<{ name: string; role?: string; avatarUrl?: string; rating?: number; specialties?: string[]; bio?: string }>;\r\n  locationImageUrl?: string;\r\n  address?: string;\r\n  phone?: string;\r\n  hours?: string;\r\n};\r\n\r\nexport default function SalonDetail() {\r\n  const navigation = useNavigation<any>();\r\n  const route = useRoute<any>();\r\n  const params: SalonDetailParams = route?.params || {};\r\n\r\n  const name = params.name || 'Salon Bliss';\r\n  const heroImageUrl =\r\n    params.heroImageUrl ||\r\n    'https://lh3.googleusercontent.com/aida-public/AB6AXuBIeZqOUaPkyZmpjkkGF8O5OV2BqqeZanCeZqbJH4B_qPNvF7WMcE2pH8aJENaQazjtm5eHSMChGJDL8wwJH7d4YI2o8MjBq7Zvk1jyDwgWK0uv2jWWD24nR8Yk_tPTlE1oMOaJdB8wmEg6yOh2EFzW6Q4MQKWT0oo75DXO5PslgNvRbG2wnnVibjzWVVQNszuoE4crNy79ZBxeKsiBdpVdEjajyhz6wlne6qN0SzzgZujyqZRcClTbk2zFEUam1pDAA-xEGcAIR60';\r\n  const gallery = (params.gallery && params.gallery.length > 0\r\n    ? params.gallery\r\n    : [\r\n        heroImageUrl,\r\n        'https://lh3.googleusercontent.com/aida-public/AB6AXuBwAofBO-dErClKSl4mxC8M4QW22AG75BnUSd0kzj3QKQXxDyEW0X4CbMkUrlAiHBNAzX8f1pn9D2IFmVJJ4mGk_gyd5P_LnUdYCFXobY3UpZeFIMMaJNmX8SaikvFmviNTGBPbTHK-qUeidUv8_9axCw8T9hMg0eOTLjASDyxGmugSlxbi6S_suXw_04qYbMqiKFHaBovVEstSjihmorhjIlg7DjHCVppw0NNQvCYvpBI-ekaYa8R_xMswT24rwSgJWHcHRpl41hc',\r\n        'https://lh3.googleusercontent.com/aida-public/AB6AXuC2SCMddfVBhB78IWPMtC-3yXZ0AfN_ys6m4cyXYafe9bFaiyrPxjjux4aHC2Xs9SC8Zbqgr7QUae5FYLARrtL5OA12vHicv-7GHZSU7spwCgAB-LLKbeVWYGipPmNilBJmfGj3aBYE5qfXjI4gsGUOWLkgnkiIaaCFnvucCDjAXn1wmgMS09hr2vFgwEW7rIu4UlpNlK-tUK9J_65132h-DcNo12_n--KWM9R1DGvHMibvfturje0ljC5aO6sR8ulZcKgbnfbHAiU',\r\n      ]) as string[];\r\n  const about =\r\n    params.about ||\r\n    'Salon Bliss is a premier salon offering a wide range of services including haircuts, styling, coloring, and spa treatments. Our experienced stylists are dedicated to providing exceptional service in a relaxing atmosphere.';\r\n  const services =\r\n    params.services || [\r\n      {\r\n        title: 'Haircut',\r\n        description: \"Women\\'s Haircut (45 min) ($40-$60)  Men\\'s Haircut (30 min) ($30-$40)  Children\\'s Haircut (30 min) ($25-$35)\",\r\n        open: true,\r\n      },\r\n      {\r\n        title: 'Hair Coloring',\r\n        description: 'Full Color (90 min) ($80-$120) Highlights (120 min) ($70-$100) Root Touch-Up (60 min) ($50-$70)',\r\n        open: true,\r\n      },\r\n      {\r\n        title: 'Manicure',\r\n        description: 'Classic Manicure (30 min) ($30-$40) Gel Manicure (45 min) ($45-$55) Spa Manicure (60 min) ($50-$60)',\r\n        open: true,\r\n      },\r\n    ];\r\n  const stylists =\r\n    params.stylists || [\r\n      {\r\n        name: 'Emily Carter',\r\n        role: 'Specialist in Color & Highlights',\r\n        avatarUrl: 'https://i.pravatar.cc/100?img=15',\r\n        rating: 5,\r\n        specialties: ['Color', 'Highlights'],\r\n        bio:\r\n          \"Emily has over 10 years of experience in the industry, specializing in color and highlights. She's known for her creative approach and attention to detail.\",\r\n      },\r\n      {\r\n        name: 'David Harper',\r\n        role: 'Expert in Haircuts & Styling',\r\n        avatarUrl: 'https://i.pravatar.cc/100?img=3',\r\n        rating: 4,\r\n        specialties: ['Haircuts', 'Styling'],\r\n        bio:\r\n          \"David is a master stylist with a passion for creating modern and classic looks. He excels in haircuts, styling, and men’s grooming.\",\r\n      },\r\n      {\r\n        name: 'Sophia Bennett',\r\n        role: 'Nail Art & Manicure Specialist',\r\n        avatarUrl: 'https://i.pravatar.cc/100?img=47',\r\n        rating: 4,\r\n        specialties: ['Nail Art', 'Manicure'],\r\n        bio:\r\n          'Sophia is a talented nail artist with a flair for creativity. She offers a wide range of services, from classic manicures to intricate nail art designs.',\r\n      },\r\n    ];\r\n  const locationImageUrl =\r\n    params.locationImageUrl ||\r\n    'https://lh3.googleusercontent.com/aida-public/AB6AXuCInCOHW1ATMo_3ILoOpGnKvadxD1Sh0PYAyWztbQREwCpkEynaM677h-we07Rs6MUSAHPkFMDptFEN3NhkSpsFbexzEaMfJlyg77ZeSzqHxGWPv459tMBmX5GATeQR8JUk14Tqkx0mSh5QgzHalC2zTQtnEOFGvP3JlPZ9IQlVVc7dPuuWdFJ80rsO-vhrbhwvFpY13QuDt11FE7qhPTjTxCy4zpLV5OexyJaAhvlT5byoYhzKlD1Bc1EU3fLYHZjs786UTcxYe6E';\r\n  const address = params.address || '123 Main Street, Anytown';\r\n  const phone = params.phone || '(555) 123-4567';\r\n  const hours = params.hours || 'Mon-Fri: 9am-7pm, Sat: 10am-6pm';\r\n  // All accordions collapsed by default, user controls expansion\r\n  const [openMap, setOpenMap] = React.useState<Record<number, boolean>>(() =>\r\n    Object.fromEntries((services || []).map((_, i) => [i, false]))\r\n  );\r\n  const [activeTab, setActiveTab] = React.useState<'Overview' | 'Reviews' | 'Stylists'>('Overview');\r\n  const [heroIndex, setHeroIndex] = React.useState(0);\r\n  const [heroWidth, setHeroWidth] = React.useState(0);\r\n  React.useEffect(() => {\r\n    // Avoid no-op warning in New Architecture (Fabric)\r\n    // @ts-ignore\r\n    const isFabric = !!global?.nativeFabricUIManager;\r\n    if (\r\n      Platform.OS === 'android' &&\r\n      !isFabric &&\r\n      UIManager.setLayoutAnimationEnabledExperimental\r\n    ) {\r\n      UIManager.setLayoutAnimationEnabledExperimental(true);\r\n    }\r\n  }, []);\r\n  const onHeroScrollEnd = (e: NativeSyntheticEvent<NativeScrollEvent>) => {\r\n    const { contentOffset, layoutMeasurement } = e.nativeEvent;\r\n    const idx = Math.round(contentOffset.x / Math.max(layoutMeasurement.width, 1));\r\n    setHeroIndex(Math.min(Math.max(idx, 0), gallery.length - 1));\r\n  };\r\n\r\n  return (\r\n    <SafeAreaView\r\n      edges={['left', 'right']}\r\n      style={[\r\n        styles.container,\r\n        {\r\n          // Match Dashboard: no extra safe-area top padding here\r\n          paddingTop: 0,\r\n        },\r\n      ]}\r\n    >\r\n      {/* Header */}\r\n      <View style={styles.header}>\r\n        <TouchableOpacity style={styles.headerIcon} onPress={() => navigation.goBack()}>\r\n          <MaterialCommunityIcons name=\"arrow-left\" color={COLORS.textPrimary} size={24} />\r\n        </TouchableOpacity>\r\n        <Text style={styles.headerTitle}>{name}</Text>\r\n        {/* Spacer to keep title centered */}\r\n        <View style={styles.headerSpacer} />\r\n      </View>\r\n\r\n      <ScrollView contentContainerStyle={styles.scrollContent}>\r\n        {/* Hero Image with overlay dots */}\r\n        <View\r\n          style={styles.heroWrapper}\r\n          onLayout={(e) => setHeroWidth(Math.max(0, (e.nativeEvent.layout.width || 0) - 32))}\r\n        >\r\n          <ScrollView\r\n            horizontal\r\n            pagingEnabled\r\n            showsHorizontalScrollIndicator={false}\r\n            onMomentumScrollEnd={onHeroScrollEnd}\r\n            style={{ width: '100%' }}\r\n          >\r\n            {gallery.map((uri, i) => (\r\n              <View key={i} style={{ width: heroWidth || '100%' }}>\r\n                <ImageBackground source={{ uri }} style={styles.hero} imageStyle={styles.heroImage}>\r\n                  <View style={styles.heroOverlay} />\r\n                </ImageBackground>\r\n              </View>\r\n            ))}\r\n          </ScrollView>\r\n          <View style={styles.heroDots}>\r\n            {gallery.map((_, i) => (\r\n              <View key={i} style={[styles.dot, { opacity: heroIndex === i ? 1 : 0.5 }]} />\r\n            ))}\r\n          </View>\r\n        </View>\r\n\r\n        {/* Pseudo tabs */}\r\n        <View style={styles.tabsRow}>\r\n          <TouchableOpacity\r\n            onPress={() => {\r\n              LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);\r\n              setActiveTab('Overview');\r\n            }}\r\n            style={[styles.tabItem, activeTab === 'Overview' && styles.tabActive]}\r\n          >\r\n            <Text style={[\r\n              styles.tabText,\r\n              activeTab === 'Overview' ? styles.tabTextActive : styles.tabTextInactive,\r\n            ]}>Overview</Text>\r\n          </TouchableOpacity>\r\n          <TouchableOpacity\r\n            onPress={() => {\r\n              LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);\r\n              setActiveTab('Reviews');\r\n            }}\r\n            style={[styles.tabItem, activeTab === 'Reviews' && styles.tabActive]}\r\n          >\r\n            <Text style={[\r\n              styles.tabText,\r\n              activeTab === 'Reviews' ? styles.tabTextActive : styles.tabTextInactive,\r\n            ]}>Reviews</Text>\r\n          </TouchableOpacity>\r\n          <TouchableOpacity\r\n            onPress={() => {\r\n              LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);\r\n              setActiveTab('Stylists');\r\n            }}\r\n            style={[styles.tabItem, activeTab === 'Stylists' && styles.tabActive]}\r\n          >\r\n            <Text style={[\r\n              styles.tabText,\r\n              activeTab === 'Stylists' ? styles.tabTextActive : styles.tabTextInactive,\r\n            ]}>Stylists</Text>\r\n          </TouchableOpacity>\r\n        </View>\r\n\r\n        {activeTab === 'Overview' ? (\r\n          <>\r\n            {/* About */}\r\n            <Text style={styles.sectionTitle}>About</Text>\r\n            <Text style={styles.paragraph}>{about}</Text>\r\n\r\n            {/* Services */}\r\n            <Text style={styles.sectionTitle}>Services</Text>\r\n            <View style={{ paddingHorizontal: 16 }}>\r\n              {services.map((s, idx) => {\r\n                const isOpen = !!openMap[idx];\r\n                // Try to split description into neat lines if items array is not provided\r\n                const lines = (s as any).items && Array.isArray((s as any).items)\r\n                  ? ((s as any).items as string[])\r\n                  : (s.description || '')\r\n                      .split(/\\s{2,}/)\r\n                      .map((t) => t.trim())\r\n                      .filter(Boolean);\r\n                return (\r\n                  <View key={idx} style={styles.serviceGroup}>\r\n                    <List.Accordion\r\n                      title={<RNText style={styles.serviceTitle}>{s.title}</RNText>}\r\n                      right={() => (\r\n                        <MaterialCommunityIcons\r\n                          name={isOpen ? 'chevron-up' : 'chevron-down'}\r\n                          size={20}\r\n                          color={COLORS.textPrimary}\r\n                        />\r\n                      )}\r\n                      style={styles.accordion}\r\n                      expanded={isOpen}\r\n                      onPress={() => {\r\n                        LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);\r\n                        setOpenMap((prev) => ({ ...prev, [idx]: !prev[idx] }));\r\n                      }}\r\n                    >\r\n                      <View style={styles.serviceContent}>\r\n                        <View style={styles.serviceDetailsBox}>\r\n                          {lines.map((ln, i) => {\r\n                            const match = ln.match(/^(.*?)(?:\\s*\\(([^)]+)\\))?(?:\\s*\\(([^)]+)\\))?$/);\r\n                            const svc = (match?.[1] || ln).trim();\r\n                            const a = (match?.[2] || '').trim();\r\n                            const b = (match?.[3] || '').trim();\r\n                            let duration = '';\r\n                            let price = '';\r\n                            [a, b].forEach((p) => {\r\n                              if (!p) return;\r\n                              if (/(min|hr)/i.test(p)) duration = p; else price = p;\r\n                            });\r\n                            return (\r\n                              <View key={i} style={[styles.serviceItemRow, i < lines.length - 1 && styles.serviceDivider]}>\r\n                                <Text style={styles.serviceItemName}>{svc}</Text>\r\n                                <View style={styles.serviceRight}>\r\n                                  {!!duration && <Text style={styles.serviceItemDuration}>{duration}</Text>}\r\n                                  {!!duration && !!price && <Text style={styles.serviceDot}> • </Text>}\r\n                                  {!!price && <Text style={styles.serviceItemPrice}>{price}</Text>}\r\n                                </View>\r\n                              </View>\r\n                            );\r\n                          })}\r\n                        </View>\r\n                      </View>\r\n                    </List.Accordion>\r\n                  </View>\r\n                );\r\n              })}\r\n            </View>\r\n            {/* Location */}\r\n            <Text style={styles.sectionTitle}>Location</Text>\r\n            <View style={{ paddingHorizontal: 16, paddingVertical: 12 }}>\r\n              <Image source={{ uri: locationImageUrl }} style={styles.locationImage} resizeMode=\"cover\" />\r\n            </View>\r\n\r\n            {/* Info Rows */}\r\n            <InfoRow icon=\"map-marker-outline\" title=\"Address\" subtitle={address} />\r\n            <InfoRow icon=\"phone-outline\" title=\"Phone\" subtitle={phone} />\r\n            <InfoRow icon=\"clock-outline\" title=\"Hours\" subtitle={hours} />\r\n          </>\r\n        ) : activeTab === 'Reviews' ? (\r\n          <>\r\n            <Text style={styles.sectionTitle}>Reviews</Text>\r\n            <View style={{ paddingHorizontal: 16 }}>\r\n              {/* Summary */}\r\n              <View style={styles.reviewsSummary}>\r\n                <View style={styles.reviewsHeaderRow}>\r\n                  <Text style={styles.avgRating}>4.7</Text>\r\n                  <View style={{ marginLeft: 12 }}>\r\n                    <View style={styles.avgStarsRow}>\r\n                      {Array.from({ length: 5 }).map((_, i) => (\r\n                        <MaterialCommunityIcons\r\n                          key={i}\r\n                          name={i < 4 ? 'star' : 'star-outline'}\r\n                          size={18}\r\n                          color={i < 4 ? COLORS.textPrimary : '#d1d5db'}\r\n                        />\r\n                      ))}\r\n                    </View>\r\n                    <Text style={styles.reviewsCount}>125 reviews</Text>\r\n                  </View>\r\n                </View>\r\n                <View style={styles.histogram}>\r\n                  {[\r\n                    { stars: 5, pct: 50 },\r\n                    { stars: 4, pct: 30 },\r\n                    { stars: 3, pct: 10 },\r\n                    { stars: 2, pct: 5 },\r\n                    { stars: 1, pct: 5 },\r\n                  ].map((h) => (\r\n                    <View key={h.stars} style={styles.histRow}>\r\n                      <Text style={styles.histLabel}>{h.stars}</Text>\r\n                      <View style={styles.histBarTrack}>\r\n                        <View style={[styles.histBarFill, { width: `${h.pct}%` }]} />\r\n                      </View>\r\n                      <Text style={styles.histPct}>{h.pct}%</Text>\r\n                    </View>\r\n                  ))}\r\n                </View>\r\n              </View>\r\n\r\n              {/* Reviews List */}\r\n              {[\r\n                {\r\n                  name: 'Sophia Clark',\r\n                  avatarUrl: 'https://i.pravatar.cc/100?img=15',\r\n                  date: '2 weeks ago',\r\n                  rating: 5,\r\n                  text:\r\n                    'Absolutely loved my experience at Salon Bliss! The staff was incredibly friendly and professional. My stylist, Sarah, did an amazing job with my haircut and color. I left feeling refreshed and confident. Highly recommend!',\r\n                  likes: 12,\r\n                  comments: 2,\r\n                },\r\n                {\r\n                  name: 'Ethan Bennett',\r\n                  avatarUrl: 'https://i.pravatar.cc/100?img=12',\r\n                  date: '1 month ago',\r\n                  rating: 4,\r\n                  text:\r\n                    'I had a great time at Salon Bliss. The atmosphere was relaxing, and the staff was welcoming. My haircut was good, but I felt it could have been slightly better. Overall, a positive experience.',\r\n                  likes: 8,\r\n                  comments: 1,\r\n                },\r\n              ].map((r, i) => (\r\n                <View key={i} style={styles.reviewCard}>\r\n                  <View style={styles.reviewItemHeaderRow}>\r\n                    {r.avatarUrl ? (\r\n                      <Image source={{ uri: r.avatarUrl }} style={styles.reviewAvatar} />\r\n                    ) : (\r\n                      <View style={[styles.reviewAvatar, { alignItems: 'center', justifyContent: 'center' }]}> \r\n                        <MaterialCommunityIcons name=\"account\" size={22} color={COLORS.textSecondary} />\r\n                      </View>\r\n                    )}\r\n                    <View style={{ flex: 1 }}>\r\n                      <Text style={styles.reviewName}>{r.name}</Text>\r\n                      <Text style={styles.reviewMeta}>{r.date}</Text>\r\n                    </View>\r\n                  </View>\r\n                  <View style={styles.reviewStars}>\r\n                    {Array.from({ length: 5 }).map((_, idx) => (\r\n                      <MaterialCommunityIcons\r\n                        key={idx}\r\n                        name={idx < r.rating ? 'star' : 'star-outline'}\r\n                        size={18}\r\n                        color={idx < r.rating ? COLORS.textPrimary : '#d1d5db'}\r\n                      />\r\n                    ))}\r\n                  </View>\r\n                  <Text style={styles.reviewText}>{r.text}</Text>\r\n                  <View style={styles.reviewActionsRow}>\r\n                    <View style={styles.reviewAction}>\r\n                      <MaterialCommunityIcons name=\"thumb-up-outline\" size={18} color={COLORS.textSecondary} />\r\n                      <Text style={styles.reviewActionText}>{r.likes}</Text>\r\n                    </View>\r\n                    <View style={styles.reviewAction}>\r\n                      <MaterialCommunityIcons name=\"message-processing-outline\" size={18} color={COLORS.textSecondary} />\r\n                      <Text style={styles.reviewActionText}>{r.comments}</Text>\r\n                    </View>\r\n                  </View>\r\n                </View>\r\n              ))}\r\n            </View>\r\n          </>\r\n        ) : (\r\n          <>\r\n            <Text style={styles.sectionTitle}>Stylists</Text>\r\n            <View style={{ paddingHorizontal: 16 }}>\r\n              {stylists.map((st, i) => (\r\n                <View key={i} style={styles.stylistCard}>\r\n                  <View style={styles.stylistRow}>\r\n                    {st.avatarUrl ? (\r\n                      <Image source={{ uri: st.avatarUrl }} style={styles.stylistAvatar} />\r\n                    ) : (\r\n                      <View style={[styles.stylistAvatar, { backgroundColor: COLORS.surfaceAlt, alignItems: 'center', justifyContent: 'center' }]}>\r\n                        <MaterialCommunityIcons name=\"account\" size={28} color={COLORS.textSecondary} />\r\n                      </View>\r\n                    )}\r\n                    <View style={{ flex: 1 }}>\r\n                      <Text style={styles.stylistName}>{st.name}</Text>\r\n                      {!!st.role && <Text style={styles.stylistRole}>{st.role}</Text>}\r\n                      {st.specialties && st.specialties.length > 0 && (\r\n                        <View style={styles.stylistTagsRow}>\r\n                          {st.specialties.map((sp, idx) => (\r\n                            <View key={idx} style={styles.stylistTag}><Text style={styles.stylistTagText}>{sp}</Text></View>\r\n                          ))}\r\n                        </View>\r\n                      )}\r\n                      {!!st.bio && <Text style={styles.stylistBio}>{st.bio}</Text>}\r\n                    </View>\r\n                  </View>\r\n                </View>\r\n              ))}\r\n            </View>\r\n          </>\r\n        )}\r\n      </ScrollView>\r\n\r\n      {/* Footer actions */}\r\n      <View>\r\n        <View style={{ paddingHorizontal: 16, paddingVertical: 12 }}>\r\n          <Button\r\n            mode=\"contained\"\r\n            onPress={() => navigation.navigate('SelectServices', { heroImageUrl, salonName: name })}\r\n            contentStyle={{ height: 48 }}\r\n            style={styles.bookBtn}\r\n          >\r\n            Book Appointment\r\n          </Button>\r\n        </View>\r\n        <View style={{ height: 5, backgroundColor: COLORS.white }} />\r\n      </View>\r\n    </SafeAreaView>\r\n  );\r\n}\r\n\r\nfunction InfoRow({ icon, title, subtitle }: { icon: any; title: string; subtitle: string }) {\r\n  return (\r\n    <View style={styles.infoRow}>\r\n      <View style={styles.infoIconBox}>\r\n        <MaterialCommunityIcons name={icon} color={COLORS.textPrimary} size={24} />\r\n      </View>\r\n      <View style={{ flex: 1 }}>\r\n        <Text style={styles.infoTitle}>{title}</Text>\r\n        <Text style={styles.infoSubtitle} numberOfLines={2}>\r\n          {subtitle}\r\n        </Text>\r\n      </View>\r\n    </View>\r\n  );\r\n}\r\n\r\nfunction BottomNavItem({ icon, label, active }: { icon: any; label: string; active?: boolean }) {\r\n  return (\r\n    <TouchableOpacity style={styles.bottomNavItem}>\r\n      <MaterialCommunityIcons\r\n        name={icon}\r\n        size={24}\r\n        color={active ? COLORS.textPrimary : COLORS.textSecondary}\r\n      />\r\n      <RNText style={[styles.bottomNavLabel, { color: active ? COLORS.textPrimary : COLORS.textSecondary }]}>\r\n        {label}\r\n      </RNText>\r\n    </TouchableOpacity>\r\n  );\r\n}\r\n\r\nconst styles = StyleSheet.create({\r\n  container: {\r\n    flex: 1,\r\n    backgroundColor: '#FFFFFF',\r\n  },\r\n  header: {\r\n    flexDirection: 'row',\r\n    alignItems: 'center',\r\n    paddingHorizontal: 16,\r\n    // Match Dashboard headerRow spacing\r\n    paddingTop: 50,\r\n    paddingBottom: 4,\r\n  },\r\n  headerIcon: {\r\n    width: 48,\r\n    height: 48,\r\n    alignItems: 'center',\r\n    justifyContent: 'center',\r\n  },\r\n  headerTitle: {\r\n    flex: 1,\r\n    textAlign: 'center',\r\n    color: COLORS.textPrimary,\r\n    fontSize: 18,\r\n    fontWeight: 'bold',\r\n    paddingRight: 48, // keep visual center since left has icon\r\n  },\r\n  headerSpacer: { width: 0, height: 0 },\r\n  scrollContent: {\r\n    paddingTop: 4,\r\n    paddingBottom: 8,\r\n  },\r\n  heroWrapper: {\r\n    paddingHorizontal: 16,\r\n    paddingTop: 8,\r\n  },\r\n  hero: {\r\n    width: '100%',\r\n    minHeight: 218,\r\n    borderRadius: 12,\r\n    overflow: 'hidden',\r\n    justifyContent: 'flex-end',\r\n  },\r\n  heroImage: {\r\n    borderRadius: 12,\r\n  },\r\n  heroOverlay: {\r\n    ...StyleSheet.absoluteFillObject,\r\n    backgroundColor: 'rgba(0,0,0,0.15)', // subtle overlay to mimic gradient\r\n  },\r\n  heroDots: {\r\n    position: 'absolute',\r\n    left: 0,\r\n    right: 0,\r\n    bottom: 8,\r\n    flexDirection: 'row',\r\n    justifyContent: 'center',\r\n  },\r\n  dot: {\r\n    width: 6,\r\n    height: 6,\r\n    borderRadius: 3,\r\n    backgroundColor: COLORS.white,\r\n    marginHorizontal: 4,\r\n  },\r\n  tabsRow: {\r\n    flexDirection: 'row',\r\n    borderBottomWidth: StyleSheet.hairlineWidth,\r\n    borderBottomColor: COLORS.divider,\r\n    paddingHorizontal: 16,\r\n    gap: 32,\r\n  },\r\n  tabItem: {\r\n    paddingTop: 16,\r\n    paddingBottom: 13,\r\n    borderBottomWidth: 3,\r\n    borderBottomColor: 'transparent',\r\n  },\r\n  tabActive: {\r\n    borderBottomColor: COLORS.textPrimary,\r\n  },\r\n  tabText: {\r\n    fontSize: 14,\r\n    fontWeight: 'bold',\r\n  },\r\n  tabTextActive: {\r\n    color: COLORS.textPrimary,\r\n  },\r\n  tabTextInactive: {\r\n    color: COLORS.textSecondary,\r\n  },\r\n  sectionTitle: {\r\n    color: COLORS.textPrimary,\r\n    fontSize: 18,\r\n    fontWeight: 'bold',\r\n    paddingHorizontal: 16,\r\n    paddingTop: 16,\r\n    paddingBottom: 8,\r\n  },\r\n  paragraph: {\r\n    color: COLORS.textPrimary,\r\n    fontSize: 16,\r\n    paddingHorizontal: 16,\r\n    paddingTop: 4,\r\n    paddingBottom: 12,\r\n  },\r\n  serviceGroup: {\r\n    marginBottom: 12,\r\n  },\r\n  accordion: {\r\n    paddingHorizontal: 0,\r\n    backgroundColor: '#FFFFFF',\r\n    borderRadius: 12,\r\n    overflow: 'hidden',\r\n    // subtle shadow for premium look\r\n    shadowColor: '#000',\r\n    shadowOpacity: 0.06,\r\n    shadowRadius: 8,\r\n    shadowOffset: { width: 0, height: 3 },\r\n    elevation: 2,\r\n  },\r\n  serviceTitle: {\r\n    color: COLORS.textPrimary,\r\n    fontSize: 14,\r\n    fontWeight: '500',\r\n  },\r\n  serviceDesc: {\r\n    color: COLORS.textSecondary,\r\n    fontSize: 14,\r\n    paddingBottom: 8,\r\n  },\r\n  serviceContent: {\r\n    backgroundColor: '#FFFFFF',\r\n    paddingHorizontal: 16,\r\n    paddingVertical: 12,\r\n  },\r\n  serviceDetailsBox: {\r\n    backgroundColor: COLORS.surfaceAlt,\r\n    borderRadius: 12,\r\n    paddingHorizontal: 12,\r\n    paddingVertical: 4,\r\n  },\r\n  serviceItemRow: {\r\n    paddingVertical: 10,\r\n    flexDirection: 'row',\r\n    alignItems: 'center',\r\n    justifyContent: 'space-between',\r\n  },\r\n  serviceDivider: {\r\n    borderBottomWidth: StyleSheet.hairlineWidth,\r\n    borderBottomColor: COLORS.divider,\r\n  },\r\n  serviceItemText: {\r\n    color: COLORS.textPrimary,\r\n    fontSize: 14,\r\n  },\r\n  serviceItemName: {\r\n    color: COLORS.textPrimary,\r\n    fontSize: 14,\r\n    flexShrink: 1,\r\n    paddingRight: 12,\r\n  },\r\n  serviceItemPrice: {\r\n    color: COLORS.accent,\r\n    fontSize: 14,\r\n    fontWeight: '600',\r\n    marginLeft: 8,\r\n  },\r\n  serviceRight: {\r\n    flexDirection: 'row',\r\n    alignItems: 'center',\r\n  },\r\n  serviceItemDuration: {\r\n    color: COLORS.textSecondary,\r\n    fontSize: 13,\r\n  },\r\n  serviceDot: {\r\n    color: COLORS.textSecondary,\r\n    marginHorizontal: 4,\r\n  },\r\n  stylistCard: {\r\n    backgroundColor: 'transparent',\r\n    borderRadius: 0,\r\n    paddingHorizontal: 0,\r\n    paddingVertical: 12,\r\n    marginBottom: 0,\r\n    shadowColor: 'transparent',\r\n    shadowOpacity: 0,\r\n    shadowRadius: 0,\r\n    shadowOffset: { width: 0, height: 0 },\r\n    elevation: 0,\r\n    borderBottomWidth: StyleSheet.hairlineWidth,\r\n    borderBottomColor: COLORS.divider,\r\n  },\r\n  stylistRow: {\r\n    flexDirection: 'row',\r\n    alignItems: 'center',\r\n    gap: 12,\r\n  },\r\n  stylistAvatar: {\r\n    width: 56,\r\n    height: 56,\r\n    borderRadius: 28,\r\n  },\r\n  stylistName: {\r\n    color: COLORS.textPrimary,\r\n    fontSize: 16,\r\n    fontWeight: '600',\r\n  },\r\n  stylistRole: {\r\n    color: COLORS.textSecondary,\r\n    fontSize: 13,\r\n    marginTop: 2,\r\n  },\r\n  stylistTagsRow: {\r\n    flexDirection: 'row',\r\n    flexWrap: 'wrap',\r\n    marginTop: 6,\r\n  },\r\n  stylistTag: {\r\n    backgroundColor: COLORS.surfaceAlt,\r\n    borderRadius: 999,\r\n    paddingHorizontal: 8,\r\n    paddingVertical: 4,\r\n    marginRight: 6,\r\n    marginBottom: 6,\r\n  },\r\n  stylistTagText: {\r\n    color: COLORS.textPrimary,\r\n    fontSize: 12,\r\n    fontWeight: '500',\r\n  },\r\n  stylistBio: {\r\n    marginTop: 8,\r\n    color: COLORS.textPrimary,\r\n    fontSize: 14,\r\n    lineHeight: 20,\r\n  },\r\n  stylistRating: {\r\n    flexDirection: 'row',\r\n    alignItems: 'center',\r\n    backgroundColor: COLORS.surfaceAlt,\r\n    borderRadius: 999,\r\n    height: 28,\r\n    paddingHorizontal: 8,\r\n  },\r\n  stylistRatingText: {\r\n    marginLeft: 4,\r\n    color: COLORS.textPrimary,\r\n    fontWeight: '600',\r\n  },\r\n  locationImage: {\r\n    width: '100%',\r\n    aspectRatio: 16 / 9,\r\n    borderRadius: 12,\r\n  },\r\n  infoRow: {\r\n    flexDirection: 'row',\r\n    alignItems: 'center',\r\n    backgroundColor: '#FFFFFF',\r\n    paddingHorizontal: 16,\r\n    paddingVertical: 10,\r\n    minHeight: 72,\r\n  },\r\n  infoIconBox: {\r\n    width: 48,\r\n    height: 48,\r\n    borderRadius: 12,\r\n    backgroundColor: COLORS.surfaceAlt,\r\n    alignItems: 'center',\r\n    justifyContent: 'center',\r\n    marginRight: 16,\r\n  },\r\n  infoTitle: {\r\n    color: COLORS.textPrimary,\r\n    fontSize: 16,\r\n    fontWeight: '500',\r\n  },\r\n  infoSubtitle: {\r\n    color: COLORS.textSecondary,\r\n    fontSize: 14,\r\n  },\r\n  bookBtn: {\r\n    borderRadius: 12,\r\n    backgroundColor: COLORS.primaryBtn,\r\n  },\r\n  reviewCard: {\r\n    backgroundColor: 'transparent',\r\n    borderRadius: 0,\r\n    paddingHorizontal: 0,\r\n    paddingVertical: 12,\r\n    marginBottom: 16,\r\n    shadowColor: 'transparent',\r\n    shadowOpacity: 0,\r\n    shadowRadius: 0,\r\n    shadowOffset: { width: 0, height: 0 },\r\n    elevation: 0,\r\n  },\r\n  reviewHeader: {\r\n    flexDirection: 'row',\r\n    alignItems: 'center',\r\n    justifyContent: 'space-between',\r\n    marginBottom: 6,\r\n  },\r\n  reviewName: {\r\n    color: COLORS.textPrimary,\r\n    fontWeight: '600',\r\n    fontSize: 14,\r\n  },\r\n  reviewDate: {\r\n    color: COLORS.textSecondary,\r\n    fontSize: 12,\r\n  },\r\n  reviewStars: {\r\n    flexDirection: 'row',\r\n    marginBottom: 6,\r\n  },\r\n  reviewText: {\r\n    color: COLORS.textPrimary,\r\n    fontSize: 14,\r\n    lineHeight: 20,\r\n  },\r\n  // Reviews summary block (avg + histogram)\r\n  reviewsSummary: {\r\n    backgroundColor: 'transparent',\r\n    borderRadius: 0,\r\n    paddingHorizontal: 0,\r\n    paddingVertical: 8,\r\n    marginBottom: 12,\r\n    shadowColor: 'transparent',\r\n    shadowOpacity: 0,\r\n    shadowRadius: 0,\r\n    shadowOffset: { width: 0, height: 0 },\r\n    elevation: 0,\r\n  },\r\n  reviewsHeaderRow: {\r\n    flexDirection: 'row',\r\n    alignItems: 'center',\r\n    marginBottom: 12,\r\n  },\r\n  avgRating: {\r\n    fontSize: 40,\r\n    lineHeight: 44,\r\n    fontWeight: '700',\r\n    color: COLORS.textPrimary,\r\n  },\r\n  avgStarsRow: {\r\n    flexDirection: 'row',\r\n    marginBottom: 4,\r\n  },\r\n  reviewsCount: {\r\n    color: COLORS.textSecondary,\r\n    fontSize: 13,\r\n  },\r\n  histogram: {\r\n    marginTop: 8,\r\n  },\r\n  histRow: {\r\n    flexDirection: 'row',\r\n    alignItems: 'center',\r\n    marginBottom: 8,\r\n  },\r\n  histLabel: {\r\n    width: 16,\r\n    textAlign: 'right',\r\n    marginRight: 8,\r\n    color: COLORS.textPrimary,\r\n    fontSize: 12,\r\n  },\r\n  histBarTrack: {\r\n    flex: 1,\r\n    height: 8,\r\n    borderRadius: 8,\r\n    backgroundColor: '#EAE7EF',\r\n    overflow: 'hidden',\r\n    marginRight: 8,\r\n  },\r\n  histBarFill: {\r\n    height: '100%',\r\n    backgroundColor: COLORS.textPrimary,\r\n    borderRadius: 8,\r\n  },\r\n  histPct: {\r\n    width: 40,\r\n    textAlign: 'left',\r\n    color: COLORS.textSecondary,\r\n    fontSize: 12,\r\n  },\r\n  // Review item header (avatar + name/date)\r\n  reviewItemHeaderRow: {\r\n    flexDirection: 'row',\r\n    alignItems: 'center',\r\n    marginBottom: 8,\r\n  },\r\n  reviewAvatar: {\r\n    width: 36,\r\n    height: 36,\r\n    borderRadius: 18,\r\n    backgroundColor: COLORS.surfaceAlt,\r\n    marginRight: 10,\r\n  },\r\n  reviewMeta: {\r\n    color: COLORS.textSecondary,\r\n    fontSize: 12,\r\n    marginTop: 2,\r\n  },\r\n  reviewActionsRow: {\r\n    flexDirection: 'row',\r\n    alignItems: 'center',\r\n    marginTop: 10,\r\n    gap: 20,\r\n  },\r\n  reviewAction: {\r\n    flexDirection: 'row',\r\n    alignItems: 'center',\r\n    gap: 6,\r\n  },\r\n  reviewActionText: {\r\n    color: COLORS.textSecondary,\r\n    fontSize: 13,\r\n  },\r\n  bottomNav: {\r\n    flexDirection: 'row',\r\n    alignItems: 'flex-end',\r\n    justifyContent: 'space-between',\r\n    borderTopWidth: 1,\r\n    borderTopColor: COLORS.surfaceAlt,\r\n    backgroundColor: '#FFFFFF',\r\n    paddingHorizontal: 16,\r\n    paddingBottom: 12,\r\n    paddingTop: 8,\r\n  },\r\n  bottomNavItem: {\r\n    flex: 1,\r\n    alignItems: 'center',\r\n    justifyContent: 'flex-end',\r\n  },\r\n  bottomNavLabel: {\r\n    fontSize: 12,\r\n    fontWeight: '500',\r\n    marginTop: 4,\r\n  },\r\n});\r\n",
+    "usedDeprecatedRules": [
+      { "ruleId": "no-negated-in-lhs", "replacedBy": ["no-unsafe-negation"] },
+      { "ruleId": "no-catch-shadow", "replacedBy": ["no-shadow"] },
+      { "ruleId": "handle-callback-err", "replacedBy": [] },
+      { "ruleId": "no-mixed-requires", "replacedBy": [] },
+      { "ruleId": "no-new-require", "replacedBy": [] },
+      { "ruleId": "no-path-concat", "replacedBy": [] },
+      { "ruleId": "no-restricted-modules", "replacedBy": [] },
+      { "ruleId": "no-new-object", "replacedBy": ["no-object-constructor"] }
+    ]
+  }
+]

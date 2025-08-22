@@ -1,0 +1,7 @@
+C:\hudini-repo\pocs\salon-mob\src\navigation\AppNavigator.tsx:4:10: 'useAppDispatch' is defined but never used. [Error/@typescript-eslint/no-unused-vars]
+C:\hudini-repo\pocs\salon-mob\src\screens\Booking\SelectDateTime.tsx:19:9: The 'passedItems' logical expression could make the dependencies of useMemo Hook (at line 57) change on every render. To fix this, wrap the initialization of 'passedItems' in its own useMemo() Hook. [Error/react-hooks/exhaustive-deps]
+C:\hudini-repo\pocs\salon-mob\src\screens\Location\LocationGate.tsx:91:9: 'fallbackToPreviousOrSkip' is assigned a value but never used. [Error/@typescript-eslint/no-unused-vars]
+C:\hudini-repo\pocs\salon-mob\src\screens\Location\ManualLocation.tsx:47:33: 'coords' is already declared in the upper scope on line 42 column 9. [Warning/@typescript-eslint/no-shadow]
+C:\hudini-repo\pocs\salon-mob\src\screens\Salon\SalonDetail.tsx:269:30: Do not define components during render. React will see a new component type on every render and destroy the entire subtree’s DOM nodes and state (https://reactjs.org/docs/reconciliation.html#elements-of-different-types). Instead, move this component definition out of the parent component “SalonDetail” and pass data as props. If you want to allow component creation in props, set allowAsProps option to true. [Warning/react/no-unstable-nested-components]
+
+5 problems

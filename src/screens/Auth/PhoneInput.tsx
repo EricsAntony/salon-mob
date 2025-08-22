@@ -192,7 +192,7 @@ export default function PhoneInput() {
         <View style={{ alignItems: 'center', marginBottom: 24 }}>
           <Text style={styles.title}>Enter your mobile number</Text>
           <Text style={styles.description}>
-            We\'ll send you a verification code to confirm your number
+            We'll send you a verification code to confirm your number
           </Text>
         </View>
 

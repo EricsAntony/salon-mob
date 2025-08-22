@@ -139,6 +139,10 @@ export default function OTPInput() {
     setError('');
 
     const digits = String(phoneNumber).replace(/\D/g, '').slice(-10);
+    // Persist phone for refresh endpoint usage
+    try {
+      await storage.set('auth.phoneNumber', digits);
+    } catch {}
     try {
       const { res, data } = await postJson(
         `${API_URL}/user/authenticate`,

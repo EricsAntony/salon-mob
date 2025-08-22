@@ -1,28 +1,24 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { View, StyleSheet, FlatList, TouchableOpacity } from 'react-native';
 import { Text, ActivityIndicator, TextInput as PaperTextInput } from 'react-native-paper';
 import TextInput from '../../components/TextInput';
 import { getJson } from '../../utils/network';
-import { useAppDispatch, useAppSelector } from '../../store';
-import { setLocation } from '../../store/slices/locationSlice';
+import { useAppSelector } from '../../store';
 import { API_URL } from '../../utils/env';
-import { putJson } from '../../utils/network';
+import { authedPutJson } from '../../utils/authFetch';
 import { storage } from '../../utils/storage';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import * as Location from 'expo-location';
 import { colors } from '../../constants/colors';
-import { LinearGradient } from 'expo-linear-gradient';
-import { useNavigation, useRoute } from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/native';
 // Back button removed per latest request
 
 // Stable, top-level small presentational components to avoid react/no-unstable-nested-components
 const Separator = () => (
   <View
     style={{
-      height: 2,
-      backgroundColor: '#ddd6fe',
-      marginLeft: 0,
-      opacity: 1,
+      height: 12,
+      backgroundColor: 'transparent',
     }}
   />
 );
@@ -39,80 +35,110 @@ export default function ManualLocation() {
   const [results, setResults] = useState<NominatimItem[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const dispatch = useAppDispatch();
   const token = useAppSelector((s) => s.auth.token);
   const userId = useAppSelector((s) => s.auth.user?.id);
-  const GRADIENT_COLORS = ['#ffffff', '#f3e8ff', '#ede9fe'] as const; // white -> purple-100 -> violet-100
-  const savedAddr = useAppSelector((s) => s.location.address);
+  // Colors for reference styling
+  const VIOLET = '#6C63FF'; // primary accent for interactive elements (app theme)
   const coords = useAppSelector((s) => s.location.coords);
   const navigation = useNavigation<any>();
-  const route = useRoute<any>();
+  const searchAbortRef = useRef<AbortController | null>(null);
 
   const updateUserAddressRemote = useCallback(
-    async (addr: string | null, coords: { latitude: number; longitude: number }) => {
+    async (addr: string | null, newCoords: { latitude: number; longitude: number }) => {
       if (!token || !userId) {
-        return;
+        throw new Error('Not authenticated');
       }
-      try {
-        const cookieSaved = await storage.get<any>('auth.cookies');
-        const csrfToken = await storage.get<string>('auth.csrfToken');
-        const cookieHeader = typeof cookieSaved === 'string' ? cookieSaved : cookieSaved?.setCookie;
-        const cookieStr = cookieHeader
-          ? String(cookieHeader)
-              .split(/,(?=[^;]+?=)/)
-              .map((s) => s.split(';')[0].trim())
-              .filter(Boolean)
-              .join('; ')
-          : undefined;
+      const cookieSaved = await storage.get<any>('auth.cookies');
+      const csrfToken = await storage.get<string>('auth.csrfToken');
+      const cookieHeader = typeof cookieSaved === 'string' ? cookieSaved : cookieSaved?.setCookie;
+      const cookieStr = cookieHeader
+        ? String(cookieHeader)
+            .split(/,(?=[^;]+?=)/)
+            .map((s) => s.split(';')[0].trim())
+            .filter(Boolean)
+            .join('; ')
+        : undefined;
 
-        const body: any = {
-          lat: coords.latitude,
-          lng: coords.longitude,
-          ...(addr ? { location: addr } : {}),
-        };
-        await putJson(`${API_URL}/users/${userId}`, body, {
-          headers: {
-            Authorization: `Bearer ${token}`,
-            ...(cookieStr ? { Cookie: cookieStr } : {}),
-            ...(csrfToken ? { 'X-CSRF-Token': String(csrfToken) } : {}),
-          },
-        });
-      } catch (e) {
-        // Non-blocking: ignore server update errors
-      }
+      const body: any = {
+        user_id: userId,
+        lat: newCoords.latitude,
+        lng: newCoords.longitude,
+        location: addr ?? '',
+      };
+      const url = `${API_URL}/users/${userId}`;
+      // authedPutJson throws on non-2xx or { success: false }
+      return authedPutJson(url, body, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+          ...(cookieStr ? { Cookie: cookieStr } : {}),
+          ...(csrfToken ? { 'X-CSRF-Token': String(csrfToken) } : {}),
+        },
+      });
     },
     [token, userId],
   );
 
   useEffect(() => {
     const id = setTimeout(async () => {
-      if (!query || query.trim().length < 3) {
+      // Cancel previous in-flight request if any
+      if (searchAbortRef.current) {
+        searchAbortRef.current.abort();
+        searchAbortRef.current = null;
+      }
+
+      const q = query.trim();
+      if (!q || q.length < 3) {
         setResults([]);
         setLoading(false);
         setError(null);
         return;
       }
+
+      const controller = new AbortController();
+      searchAbortRef.current = controller;
+
       setLoading(true);
       setError(null);
       try {
+        // Tune query to reduce server work and latency
         const url = `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(
-          query.trim(),
-        )}&limit=10`;
+          q,
+        )}&limit=5&addressdetails=0&countrycodes=in`;
         const { data } = await getJson<NominatimItem[]>(url, {
           headers: {
             'User-Agent': 'salon-mob/1.0',
             Accept: 'application/json',
+            'Accept-Language': 'en-IN,en;q=0.9',
+            Referer: API_URL,
           },
+          signal: controller.signal as any,
+          timeoutMs: 15000,
         });
+        // If aborted after resolution, ignore
+        if (controller.signal.aborted) return;
         setResults((data as any) || []);
       } catch (e: any) {
+        // If this request was aborted by a newer query, do not surface error
+        if (controller.signal.aborted) return;
+        console.error('[ManualLocation] Nominatim search failed', {
+          message: e?.message,
+          status: e?.status,
+          type: e?.type,
+          code: e?.code,
+        });
         setError(e?.message || 'Failed to search. Please try again.');
       } finally {
-        setLoading(false);
+        if (!controller.signal.aborted) setLoading(false);
       }
-    }, 350);
+    }, 700);
 
-    return () => clearTimeout(id);
+    return () => {
+      clearTimeout(id);
+      if (searchAbortRef.current) {
+        searchAbortRef.current.abort();
+        searchAbortRef.current = null;
+      }
+    };
   }, [query]);
 
   const distanceKm = useCallback(
@@ -135,19 +161,24 @@ export default function ManualLocation() {
     [coords],
   );
 
-  const onPick = (item: NominatimItem) => {
+  const onPick = async (item: NominatimItem) => {
     const lat = parseFloat(item.lat);
     const lon = parseFloat(item.lon);
     if (Number.isFinite(lat) && Number.isFinite(lon)) {
-      dispatch(
-        setLocation({
-          coords: { latitude: lat, longitude: lon, accuracy: null },
+      setError(null);
+      try {
+        await updateUserAddressRemote(item.display_name, { latitude: lat, longitude: lon });
+        // Only after successful update, navigate to Dashboard with pending location
+        const pending = {
+          coords: { latitude: lat, longitude: lon, accuracy: null as any },
           address: item.display_name,
-        }),
-      );
-      updateUserAddressRemote(item.display_name, { latitude: lat, longitude: lon });
-      if (route?.params?.from === 'dashboard') {
-        navigation.navigate('Tabs' as never, { screen: 'Home' } as never);
+        };
+        navigation.navigate(
+          'Tabs' as never,
+          { screen: 'Home', params: { pendingLocation: pending } } as never,
+        );
+      } catch (e: any) {
+        setError(e?.message || 'Failed to update location. Please try again.');
       }
     }
   };
@@ -170,34 +201,38 @@ export default function ManualLocation() {
           address = [a.name, a.street, a.city, a.region, a.postalCode].filter(Boolean).join(', ');
         }
       } catch {}
-      dispatch(
-        setLocation({
+      setError(null);
+      try {
+        await updateUserAddressRemote(address, {
+          latitude: pos.coords.latitude,
+          longitude: pos.coords.longitude,
+        });
+        const pending = {
           coords: {
             latitude: pos.coords.latitude,
             longitude: pos.coords.longitude,
-            accuracy: pos.coords.accuracy ?? null,
+            accuracy: (pos.coords.accuracy as any) ?? null,
           },
           address,
-        }),
-      );
-      updateUserAddressRemote(address, {
-        latitude: pos.coords.latitude,
-        longitude: pos.coords.longitude,
-      });
-      if (route?.params?.from === 'dashboard') {
-        navigation.navigate('Tabs' as never, { screen: 'Home' } as never);
+        };
+        navigation.navigate(
+          'Tabs' as never,
+          { screen: 'Home', params: { pendingLocation: pending } } as never,
+        );
+      } catch (e: any) {
+        setError(e?.message || 'Failed to update location. Please try again.');
       }
     } catch (e) {
       // ignore
     }
-  }, [dispatch, updateUserAddressRemote]);
+  }, [updateUserAddressRemote, navigation]);
 
   return (
     <View style={styles.container}>
-      <LinearGradient colors={GRADIENT_COLORS} style={StyleSheet.absoluteFill} />
-      {/* No back button as per latest request */}
-
-      <Text style={styles.title}>Select Your Location</Text>
+      {/* Header title only (no close button) */}
+      <View style={styles.headerRow}>
+        <Text style={styles.title}>Set location</Text>
+      </View>
 
       {/* Search input - pill */}
       <View style={{ height: 16 }} />
@@ -209,54 +244,35 @@ export default function ManualLocation() {
           autoCapitalize="none"
           autoCorrect={false}
           mode="outlined"
-          outlineStyle={{ borderRadius: 999, borderColor: 'transparent' }}
-          style={{ backgroundColor: '#F3F4F6' }}
-          left={<PaperTextInput.Icon icon="magnify" />}
+          outlineStyle={{ borderRadius: 14, borderColor: 'transparent' }}
+          style={{ backgroundColor: '#F7F7F7' }}
+          left={<PaperTextInput.Icon icon="magnify" color="#6B7280" />}
+          right={
+            query ? (
+              <PaperTextInput.Icon
+                icon="close-circle-outline"
+                onPress={() => setQuery('')}
+                forceTextInputFocus={false}
+                color="#6B7280"
+              />
+            ) : undefined
+          }
         />
       </View>
 
-      {/* Use Current Location - card button */}
+      {/* Inline "Use current location" */}
       <View style={{ height: 12 }} />
-      <TouchableOpacity onPress={requestLocation} style={styles.useCurrentBtn}>
-        <View style={styles.useCurrentIcon}>
-          <MaterialCommunityIcons name="navigation-variant" size={18} color="#FFFFFF" />
-        </View>
-        <View style={{ flex: 1 }}>
-          <Text style={styles.useCurrentTitle}>Use Current Location</Text>
-          <Text style={styles.useCurrentSubtitle}>Automatically detect your location</Text>
-        </View>
-        <View style={styles.useCurrentCheck}>
-          <MaterialCommunityIcons name="check" size={12} color="#FFFFFF" />
-        </View>
+      <TouchableOpacity onPress={requestLocation} style={styles.useCurrentInline}>
+        <MaterialCommunityIcons name="map-marker-outline" size={18} color={VIOLET} />
+        <Text style={[styles.useCurrentInlineText, { color: VIOLET }]}> Use current location</Text>
       </TouchableOpacity>
 
-      {/* Current Location - redesigned card */}
-      <View style={{ height: 24 }} />
-      <Text style={styles.sectionLabel}>Current</Text>
-      {!!savedAddr && (
-        <View style={styles.currentCard}>
-          <View style={styles.currentLeft}>
-            <View style={styles.currentIconWrap}>
-              <MaterialCommunityIcons name="map-marker" size={18} color="#9CA3AF" />
-            </View>
-            <View style={{ flex: 1 }}>
-              <Text style={styles.currentTitle}>Current Location</Text>
-              <Text numberOfLines={1} style={styles.currentSubtitle}>{savedAddr}</Text>
-            </View>
-          </View>
-          <View style={styles.currentBadge}>
-            <Text style={styles.currentBadgeText}>Using</Text>
-          </View>
-        </View>
-      )}
+      {/* Spacer before list */}
+      <View style={{ height: 12 }} />
 
       {/* Results */}
-      <View style={{ height: 16 }} />
       {loading ? <ActivityIndicator /> : null}
       {error ? <Text style={{ color: colors.error, marginBottom: 8 }}>{error}</Text> : null}
-      {!!results.length && (
-        <Text style={styles.sectionLabel}>SUGGESTIONS</Text>
-      )}
 
       <FlatList
         data={results}
@@ -274,7 +290,9 @@ export default function ManualLocation() {
           const distLabel = dist == null ? null : dist < 0.1 ? '0 km' : `${dist.toFixed(1)} km`;
           return (
             <TouchableOpacity onPress={() => onPick(item)} style={styles.itemRow}>
-              <MaterialCommunityIcons name="map-marker" size={22} color="#9CA3AF" />
+              <View style={styles.leftTile}>
+                <MaterialCommunityIcons name="map-marker" size={18} color="#6B7280" />
+              </View>
               <View style={{ marginLeft: 12, flex: 1 }}>
                 <Text numberOfLines={1} style={styles.itemTitle}>
                   {title}
@@ -297,16 +315,20 @@ export default function ManualLocation() {
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: 'transparent', padding: 16, paddingTop: 56 },
-  title: { marginTop: 16, fontSize: 20, fontWeight: '600', color: '#111827', textAlign: 'center' },
+  container: { flex: 1, backgroundColor: '#FFFFFF', padding: 16, paddingTop: 70 },
+  headerRow: { flexDirection: 'row', alignItems: 'center', justifyContent: 'center' },
+  closeBtn: { width: 44, height: 44, alignItems: 'center', justifyContent: 'center' },
+  title: { marginTop: 0, fontSize: 20, fontWeight: '700', color: '#111827', textAlign: 'center' },
   searchWrapper: {
-    borderRadius: 999,
-    shadowColor: '#6C63FF',
-    shadowOpacity: 0.15,
-    shadowRadius: 10,
-    shadowOffset: { width: 0, height: 6 },
-    elevation: 6,
+    borderRadius: 14,
+    shadowColor: 'rgba(0,0,0,0.05)',
+    shadowOpacity: 1,
+    shadowRadius: 6,
+    shadowOffset: { width: 0, height: 2 },
+    elevation: 2,
   },
+  useCurrentInline: { alignSelf: 'center', flexDirection: 'row', alignItems: 'center' },
+  useCurrentInlineText: { fontWeight: '600' },
   pillsRow: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' },
   pill: {
     flex: 1,
@@ -354,8 +376,22 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     marginLeft: 8,
   },
-  sectionLabel: { color: '#6B7280', marginTop: 12, marginBottom: 8, fontSize: 12, letterSpacing: 0.6 },
-// ... (rest of the code remains the same)
+  sectionLabel: {
+    color: '#6B7280',
+    marginTop: 12,
+    marginBottom: 8,
+    fontSize: 12,
+    letterSpacing: 0.6,
+  },
+  leftTile: {
+    width: 40,
+    height: 40,
+    borderRadius: 12,
+    backgroundColor: '#F3F4F6',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  // ... (rest of the code remains the same)
   // Boxed suggestions container
   suggestionsBox: {
     backgroundColor: '#FFFFFF',

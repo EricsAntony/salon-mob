@@ -1,7 +1,7 @@
 import React, { Suspense, useEffect, useRef, useState } from 'react';
 import { NavigationContainer, DefaultTheme, DarkTheme } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { useAppDispatch, useAppSelector } from '../store';
+import { useAppSelector } from '../store';
 import Loader from '../components/Loader';
 
 const AuthNavigator = React.lazy(() => import('./AuthNavigator'));

@@ -9,6 +9,14 @@ export async function fetchWithTimeout(
   const controller = new AbortController();
   const id = setTimeout(() => controller.abort(), timeoutMs);
 
+  // If caller provided an external signal, propagate its abort to our controller
+  const externalSignal: AbortSignal | undefined = (options as any).signal as any;
+  const onExternalAbort = () => controller.abort();
+  if (externalSignal) {
+    if (externalSignal.aborted) controller.abort();
+    else externalSignal.addEventListener('abort', onExternalAbort, { once: true });
+  }
+
   try {
     const res = await fetch(resource as any, { ...init, signal: controller.signal });
     return res;
@@ -19,6 +27,7 @@ export async function fetchWithTimeout(
     throw err;
   } finally {
     clearTimeout(id);
+    if (externalSignal) externalSignal.removeEventListener('abort', onExternalAbort as any);
   }
 }
 

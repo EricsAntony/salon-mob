@@ -9,7 +9,7 @@ import { setLocation } from '../../store/slices/locationSlice';
 import { useNavigation } from '@react-navigation/native';
 import ErrorBanner from '../../components/ErrorBanner';
 import { API_URL } from '../../utils/env';
-import { putJson, getJson } from '../../utils/network';
+import { authedPutJson } from '../../utils/authFetch';
 import { storage } from '../../utils/storage';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import { LinearGradient } from 'expo-linear-gradient';
@@ -23,7 +23,6 @@ export default function LocationGate() {
   const navigation = useNavigation<any>();
   const token = useAppSelector((s) => s.auth.token);
   const userId = useAppSelector((s) => s.auth.user?.id);
-  const isLocationSet = useAppSelector((s) => s.location.isLocationSet);
 
   // Gentle bob + wobble animation for the hero icon
   const anim = useRef(new Animated.Value(0)).current;
@@ -68,11 +67,12 @@ export default function LocationGate() {
           : undefined;
 
         const body: any = {
+          user_id: userId,
           lat: coords.latitude,
           lng: coords.longitude,
-          ...(addr ? { location: addr } : {}),
+          location: addr ?? '',
         };
-        await putJson(`${API_URL}/users/${userId}`, body, {
+        await authedPutJson(`${API_URL}/users/${userId}`, body, {
           headers: {
             Authorization: `Bearer ${token}`,
             ...(cookieStr ? { Cookie: cookieStr } : {}),
@@ -85,63 +85,6 @@ export default function LocationGate() {
     },
     [token, userId],
   );
-
-  const fallbackToPreviousOrSkip = useCallback(async () => {
-    try {
-      if (!token || !userId) {
-        // Proceed to dashboard without location
-        dispatch(
-          setLocation({ coords: { latitude: 0, longitude: 0, accuracy: null }, address: null }),
-        );
-        return;
-      }
-
-      const cookieSaved = await storage.get<any>('auth.cookies');
-      const csrfToken = await storage.get<string>('auth.csrfToken');
-      const cookieHeader = typeof cookieSaved === 'string' ? cookieSaved : cookieSaved?.setCookie;
-      const cookieStr = cookieHeader
-        ? String(cookieHeader)
-            .split(/,(?=[^;]+?=)/)
-            .map((s) => s.split(';')[0].trim())
-            .filter(Boolean)
-            .join('; ')
-        : undefined;
-
-      const { data } = await getJson<any>(`${API_URL}/user/${userId}`, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-          ...(cookieStr ? { Cookie: cookieStr } : {}),
-          ...(csrfToken ? { 'X-CSRF-Token': String(csrfToken) } : {}),
-        },
-      });
-
-      const prev = data as any;
-      const lat = Number(prev?.latitude ?? prev?.lat);
-      const lng = Number(prev?.longitude ?? prev?.lng);
-      const address = typeof prev?.location === 'string' ? prev.location : null;
-
-      if (Number.isFinite(lat) && Number.isFinite(lng)) {
-        dispatch(
-          setLocation({ coords: { latitude: lat, longitude: lng, accuracy: null }, address }),
-        );
-      } else if (address) {
-        // No coords but address exists – proceed with address only
-        dispatch(
-          setLocation({ coords: { latitude: 0, longitude: 0, accuracy: null }, address }),
-        );
-      } else {
-        // Nothing available – still proceed to dashboard
-        dispatch(
-          setLocation({ coords: { latitude: 0, longitude: 0, accuracy: null }, address: null }),
-        );
-      }
-    } catch (e) {
-      // On any error, proceed to dashboard
-      dispatch(
-        setLocation({ coords: { latitude: 0, longitude: 0, accuracy: null }, address: null }),
-      );
-    }
-  }, [dispatch, token, userId]);
 
   // On mount, auto-request location always (fresh launch should re-detect)
   useEffect(() => {
@@ -161,7 +104,9 @@ export default function LocationGate() {
         status = req.status;
       }
       if (status !== 'granted') {
-        setError('Location permission is required. Please allow access or enter location manually.');
+        setError(
+          'Location permission is required. Please allow access or enter location manually.',
+        );
         setLoading(false);
         return;
       }
@@ -220,7 +165,7 @@ export default function LocationGate() {
     } finally {
       setLoading(false);
     }
-  }, [dispatch, updateUserAddressRemote]);
+  }, [dispatch, updateUserAddressRemote, success]);
 
   return (
     <View style={styles.container}>
@@ -237,7 +182,9 @@ export default function LocationGate() {
             style={{
               transform: [
                 { translateY: anim.interpolate({ inputRange: [0, 1], outputRange: [0, -8] }) },
-                { rotate: anim.interpolate({ inputRange: [0, 1], outputRange: ['-4deg', '4deg'] }) },
+                {
+                  rotate: anim.interpolate({ inputRange: [0, 1], outputRange: ['-4deg', '4deg'] }),
+                },
               ],
             }}
           >
@@ -254,7 +201,10 @@ export default function LocationGate() {
             style={[
               styles.successPulse,
               {
-                opacity: success.interpolate({ inputRange: [0, 0.6, 1], outputRange: [0, 0.35, 0] }),
+                opacity: success.interpolate({
+                  inputRange: [0, 0.6, 1],
+                  outputRange: [0, 0.35, 0],
+                }),
                 transform: [
                   {
                     scale: success.interpolate({ inputRange: [0, 1], outputRange: [0.6, 1.8] }),
@@ -326,7 +276,7 @@ const styles = StyleSheet.create({
     overflow: 'hidden',
   },
   heroGradient: {
-    ...StyleSheet.absoluteFillObject as any,
+    ...(StyleSheet.absoluteFillObject as any),
     borderRadius: 70,
   },
   successPulse: {
